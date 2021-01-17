@@ -6,28 +6,6 @@
 
 namespace engine
 {
-#pragma region Forward declaration
-	
-	class Engine;
-
-	#pragma region Gampleay
-
-	namespace gameplay
-	{
-		class Manager;
-		class Entity;
-
-		namespace component
-		{
-			class Component;
-			class Transform;
-		}
-	}
-
-	#pragma endregion
-
-#pragma endregion
-
 	namespace management
 	{
 		namespace save
@@ -45,9 +23,18 @@ namespace engine
 
 #pragma region Gameplay
 
-				void Visit(engine::gameplay::Manager* const gameplayManager);
-				void Visit(engine::gameplay::Entity* const entity);
-				void Visit(engine::gameplay::component::Component* const component);
+				virtual void Visit(engine::gameplay::Manager* const gameplayManager) override;
+				virtual void Visit(engine::gameplay::Entity* const entity) override;
+				virtual void Visit(engine::gameplay::component::Component* const component) override;
+
+#pragma endregion
+
+#pragma region Graphics
+
+				virtual void Visit(engine::graphics::Manager* const graphicsManager) override;
+				virtual void Visit(engine::graphics::ShapeList* const shapeList) override;
+				virtual void Visit(engine::graphics::ShapeListInstance* const shapeListInstance) override;
+				virtual void Visit(engine::graphics::shape::Shape* const shape) override;
 
 #pragma endregion
 
