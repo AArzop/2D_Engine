@@ -3,6 +3,8 @@
 #include "../Entity.h"
 #include "../../Management/Save/SaveVisitor.h"
 
+#include <sstream>
+
 
 namespace engine
 {
@@ -53,7 +55,9 @@ namespace engine
 
 			std::string Transform::GetSerializeData() const
 			{
-				return "Transform:SerializeData";
+				std::ostringstream oss;
+				oss << "{Position:{x:" << position.x << ",y:" << position.y << "},Rotation:" << rotation << ",Scale:{x:" << scale.x << ",y:" << scale.y << "}}";
+				return oss.str();
 			}
 
 			void Transform::UpdateMatrix()

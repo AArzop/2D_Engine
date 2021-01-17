@@ -11,6 +11,7 @@ namespace engine
 		{
 			ShapeList shapeList;
 			::sf::Transform transform;
+			uint64 Id;
 		};
 	}
 }

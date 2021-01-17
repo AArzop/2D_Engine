@@ -43,7 +43,7 @@ namespace engine
 
 			std::string Renderer::GetSerializeData() const
 			{
-				return "Renderer:SerializeData";
+				return "{Id:" + std::to_string(shapeListInst.lock()->Id) + "}";
 			}
 
 			graphics::Manager& Renderer::GetGraphicsManager()
