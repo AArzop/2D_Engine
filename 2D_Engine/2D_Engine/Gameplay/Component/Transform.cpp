@@ -1,6 +1,8 @@
 #include "Transform.h"
 
 #include "../Entity.h"
+#include "../../Management/Save/SaveVisitor.h"
+
 
 namespace engine
 {
@@ -42,6 +44,16 @@ namespace engine
 			{
 				rotation = newScale;
 				UpdateMatrix();
+			}
+
+			std::string Transform::GetComponentName() const
+			{
+				return "Transform";
+			}
+
+			std::string Transform::GetSerializeData() const
+			{
+				return "Transform:SerializeData";
 			}
 
 			void Transform::UpdateMatrix()

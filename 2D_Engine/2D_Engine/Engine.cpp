@@ -1,7 +1,11 @@
 #include "Engine.h"
+#include "Management/Save/ISaveVisitor.h"
 
 #include <SFML/System.hpp>
 #include <SFML/Window/Event.hpp>
+
+#include "Management/Save/SaveVisitor.h"
+
 
 namespace engine
 {
@@ -71,5 +75,18 @@ namespace engine
 		default:
 			break;
 		}
+	}
+
+	void Engine::Accept(management::save::ISaveVisitor* const visitor)
+	{
+		visitor->Visit(this);
+		gameplayManager.Accept(visitor);
+	}
+
+	void Engine::TOTO()
+	{
+		management::save::SaveVisitor saveVisitor("E:/TestSave.txt");
+		Accept(&saveVisitor);
+		saveVisitor.End();
 	}
 }

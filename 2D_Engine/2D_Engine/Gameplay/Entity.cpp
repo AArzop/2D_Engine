@@ -3,6 +3,8 @@
 #include "Component/Component.h"
 #include "Component/Transform.h"
 
+#include "../Management/Save/ISaveVisitor.h"
+
 namespace engine
 {
 	namespace gameplay
@@ -33,6 +35,16 @@ namespace engine
 			for (auto& component : components)
 			{
 				component->Update();
+			}
+		}
+
+		void Entity::Accept(engine::management::save::ISaveVisitor* const visitor)
+		{
+			visitor->Visit(this);
+
+			for (auto& component : components)
+			{
+				component->Accept(visitor);
 			}
 		}
 	}

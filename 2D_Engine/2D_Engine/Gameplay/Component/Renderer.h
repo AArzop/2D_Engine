@@ -35,6 +35,9 @@ namespace engine
 				void Start() override;
 				void Update() override;
 
+				std::string GetComponentName() const override;
+				std::string GetSerializeData() const override;
+
 			private:
 				std::weak_ptr<graphics::ShapeListInstance> shapeListInst;
 				graphics::Manager& GetGraphicsManager();
