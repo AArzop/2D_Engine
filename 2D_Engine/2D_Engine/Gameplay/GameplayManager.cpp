@@ -8,7 +8,7 @@
 #include "../Graphics/Shape/RectangleShape.h"
 #include "../Graphics/Shape/CircleShape.h"
 
-#include "../Management/Save/SaveVisitor.h"
+#include "../Management/Save/ISaveVisitor.h"
 
 
 namespace engine

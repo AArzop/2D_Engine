@@ -7,7 +7,7 @@ namespace engine
 {
 	namespace graphics
 	{
-		struct ShapeListInstance;
+		class ShapeListInstance;
 		class Manager;
 
 		namespace shape
