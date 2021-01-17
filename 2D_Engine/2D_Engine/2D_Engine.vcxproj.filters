@@ -35,6 +35,12 @@
     <ClCompile Include="Graphics\Shape\CircleShape.cpp">
       <Filter>Graphics\Shape</Filter>
     </ClCompile>
+    <ClCompile Include="Management\Save\SaveVisitor.cpp">
+      <Filter>Management\Save</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\ShapeListInstance.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h" />
@@ -87,6 +93,21 @@
     <ClInclude Include="Graphics\Shape\CircleShape.h">
       <Filter>Graphics\Shape</Filter>
     </ClInclude>
+    <ClInclude Include="Management\IVisitable.h">
+      <Filter>Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\IVisitor.h">
+      <Filter>Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\Save\SaveVisitor.h">
+      <Filter>Management\Save</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\Save\ISaveVisitable.h">
+      <Filter>Management\Save</Filter>
+    </ClInclude>
+    <ClInclude Include="Management\Save\ISaveVisitor.h">
+      <Filter>Management\Save</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Graphics">
@@ -106,6 +127,12 @@
     </Filter>
     <Filter Include="Constant">
       <UniqueIdentifier>{27ccbbcf-82aa-4a24-8e23-16977b09ebe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Management">
+      <UniqueIdentifier>{f15937e9-3c0e-4406-99e0-82a8fd77b52b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Management\Save">
+      <UniqueIdentifier>{f3656214-ec08-403e-8b89-6624d935c32f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

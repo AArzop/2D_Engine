@@ -6,11 +6,13 @@
 
 #include "Shape/Shape.h"
 
+#include "../Management/Save/ISaveVisitable.h"
+
 namespace engine
 {
 	namespace graphics
 	{
-		class ShapeList
+		class ShapeList : public engine::management::save::ISaveVisitable
 		{
 			using ShapePtr = std::unique_ptr<shape::Shape>;
 			using Shapes = std::vector<ShapePtr>;
@@ -23,6 +25,9 @@ namespace engine
 			void Add(S2* shape);
 
 			const Shapes& getShapes() const;
+
+			// Override SaveVisitable interface
+			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
 
 		private:
 			Shapes shapes;

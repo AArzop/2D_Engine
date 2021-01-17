@@ -8,6 +8,8 @@
 #include "../Graphics/Shape/RectangleShape.h"
 #include "../Graphics/Shape/CircleShape.h"
 
+#include "../Management/Save/ISaveVisitor.h"
+
 
 namespace engine
 {
@@ -43,6 +45,16 @@ namespace engine
 			for (auto& entity : entities)
 			{
 				entity->UpdateComponents();
+			}
+		}
+
+		void Manager::Accept(engine::management::save::ISaveVisitor* const visitor)
+		{
+			visitor->Visit(this);
+
+			for (auto& entity : entities)
+			{
+				entity->Accept(visitor);
 			}
 		}
 	}

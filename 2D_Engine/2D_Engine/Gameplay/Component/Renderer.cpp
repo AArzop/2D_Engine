@@ -36,6 +36,16 @@ namespace engine
 				}
 			}
 
+			std::string Renderer::GetComponentName() const
+			{
+				return "Renderer";
+			}
+
+			std::string Renderer::GetSerializeData() const
+			{
+				return "{Id:" + std::to_string(shapeListInst.lock()->Id) + "}";
+			}
+
 			graphics::Manager& Renderer::GetGraphicsManager()
 			{
 				return GetEntity().GetContext().graphicsManager;

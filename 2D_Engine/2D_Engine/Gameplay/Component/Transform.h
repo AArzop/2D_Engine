@@ -21,6 +21,9 @@ namespace engine
 				void SetRotation(float newRotation);
 				void SetScale(float newScale);
 
+				std::string GetComponentName() const override;
+				std::string GetSerializeData() const override;
+
 			private:
 				sf::Transform matrix;
 

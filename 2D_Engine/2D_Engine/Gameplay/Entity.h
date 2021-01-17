@@ -2,10 +2,10 @@
 
 #include <memory>
 #include <vector>
-
 #include <cassert>
 
 #include "ManagerContext.h"
+#include "../Management/Save/ISaveVisitable.h"
 
 namespace engine
 {
@@ -16,7 +16,7 @@ namespace engine
 			class Component;
 		}
 
-		class Entity
+		class Entity : public engine::management::save::ISaveVisitable
 		{
 			using ComponentPtr = std::unique_ptr<component::Component>;
 
@@ -34,6 +34,9 @@ namespace engine
 
 			template <typename C>
 			C* GetComponent() const;
+
+			// Override SaveVisitable interface
+			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
 
 		private:
 			ManagerContext context;

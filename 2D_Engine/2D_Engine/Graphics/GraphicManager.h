@@ -3,15 +3,17 @@
 #include "SFML/Graphics/RenderWindow.hpp"
 #include <vector>
 
+#include "../Management/Save/ISaveVisitable.h"
+
 namespace engine
 {
 	class EventHandler;
 
 	namespace graphics
 	{
-		struct ShapeListInstance;
+		class ShapeListInstance;
 
-		class Manager
+		class Manager : public engine::management::save::ISaveVisitable
 		{
 		public:
 			Manager() = delete;
@@ -26,6 +28,9 @@ namespace engine
 			void PollEvent();
 
 			std::shared_ptr<ShapeListInstance>& CreateShapeListInstance();
+
+			// Override SaveVisitable interface
+			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
 
 		private:
 			sf::RenderWindow window;

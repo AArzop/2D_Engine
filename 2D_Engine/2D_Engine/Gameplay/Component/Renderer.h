@@ -7,7 +7,7 @@ namespace engine
 {
 	namespace graphics
 	{
-		struct ShapeListInstance;
+		class ShapeListInstance;
 		class Manager;
 
 		namespace shape
@@ -34,6 +34,9 @@ namespace engine
 
 				void Start() override;
 				void Update() override;
+
+				std::string GetComponentName() const override;
+				std::string GetSerializeData() const override;
 
 			private:
 				std::weak_ptr<graphics::ShapeListInstance> shapeListInst;

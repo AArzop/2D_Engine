@@ -1,5 +1,7 @@
 #include "RectangleShape.h"
 
+#include <sstream>
+
 namespace engine
 {
 	namespace graphics
@@ -19,6 +21,21 @@ namespace engine
 			void RectangleShape::SetColor(sf::Color color)
 			{
 				rect.setFillColor(color);
+			}
+
+			std::string RectangleShape::GetShapeName() const
+			{
+				return "RectangleShape";
+			}
+
+			std::string RectangleShape::GetSerializeData() const
+			{
+				const sf::RectangleShape* rs = reinterpret_cast<sf::RectangleShape*>(drawable.get());
+
+				std::ostringstream oss;
+				oss << "{Width:" << rs->getSize().x << ",height:" << rs->getSize().y;
+				oss << "," << GetTransformSerialize() << "}";
+				return oss.str();
 			}
 
 			RectangleShape::~RectangleShape()
