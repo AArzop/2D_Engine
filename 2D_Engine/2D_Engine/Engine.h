@@ -28,7 +28,7 @@ namespace engine
 
 		void Accept(management::save::ISaveVisitor* const visitor) override;
 
-		void TOTO();
+		void SaveMap();
 
 	private:
 		graphics::Manager graphicsManager;

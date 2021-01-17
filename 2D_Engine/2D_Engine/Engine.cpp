@@ -80,10 +80,13 @@ namespace engine
 	void Engine::Accept(management::save::ISaveVisitor* const visitor)
 	{
 		visitor->Visit(this);
+
+		graphicsManager.Accept(visitor);
+
 		gameplayManager.Accept(visitor);
 	}
 
-	void Engine::TOTO()
+	void Engine::SaveMap()
 	{
 		management::save::SaveVisitor saveVisitor("E:/TestSave.txt");
 		Accept(&saveVisitor);
