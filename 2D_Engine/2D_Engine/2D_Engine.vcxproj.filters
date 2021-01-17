@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Graphics\Shape\RectangleShape.cpp">
+      <Filter>Graphics\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Shape\Shape.cpp">
+      <Filter>Graphics\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\GraphicManager.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\ShapeList.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\Entity.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\GameplayManager.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\Component\Component.cpp">
+      <Filter>Gameplay\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\Component\Renderer.cpp">
+      <Filter>Gameplay\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameplay\Component\Transform.cpp">
+      <Filter>Gameplay\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\InputManager.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Shape\CircleShape.cpp">
+      <Filter>Graphics\Shape</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Graphics\Shape\RectangleShape.h">
+      <Filter>Graphics\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Shape\Shape.h">
+      <Filter>Graphics\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Constant\Constant.h">
+      <Filter>Constant</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\GraphicManager.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\ShapeList.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\ShapeListInstance.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\Entity.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\Entity.hxx">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\GameplayManager.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\ManagerContext.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\Component\Component.h">
+      <Filter>Gameplay\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\Component\Renderer.h">
+      <Filter>Gameplay\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\Component\Renderer.hxx">
+      <Filter>Gameplay\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameplay\Component\Transform.h">
+      <Filter>Gameplay\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\InputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Shape\CircleShape.h">
+      <Filter>Graphics\Shape</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{6f8aa644-839a-492f-a71e-8e0f86e3de7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{2dcf5782-7b7f-443a-8466-aa7347022fd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay">
+      <UniqueIdentifier>{2995d5ce-332d-4705-b195-658095dc9abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay\Component">
+      <UniqueIdentifier>{8f04ca91-5397-4af7-812e-0772795192f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Shape">
+      <UniqueIdentifier>{b361297d-9095-46c1-94d4-8fd4a19234ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Constant">
+      <UniqueIdentifier>{27ccbbcf-82aa-4a24-8e23-16977b09ebe2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
