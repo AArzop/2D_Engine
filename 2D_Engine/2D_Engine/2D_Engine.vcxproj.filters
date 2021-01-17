@@ -38,6 +38,9 @@
     <ClCompile Include="Management\Save\SaveVisitor.cpp">
       <Filter>Management\Save</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\ShapeListInstance.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h" />

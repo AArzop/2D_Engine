@@ -27,6 +27,7 @@
     <ClCompile Include="Gameplay\GameplayManager.cpp" />
     <ClCompile Include="Graphics\GraphicManager.cpp" />
     <ClCompile Include="Graphics\ShapeList.cpp" />
+    <ClCompile Include="Graphics\ShapeListInstance.cpp" />
     <ClCompile Include="Graphics\Shape\RectangleShape.cpp" />
     <ClCompile Include="Graphics\Shape\Shape.cpp" />
     <ClCompile Include="Graphics\Shape\CircleShape.cpp" />
