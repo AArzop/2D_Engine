@@ -6,6 +6,9 @@
 #include "SFML/Graphics/Transform.hpp"
 #include "SFML/Graphics/Drawable.hpp"
 
+#include "../../Management/Save/ISaveVisitable.h"
+#include <string>
+
 namespace sf
 {
 	class Color;
@@ -17,7 +20,7 @@ namespace engine
 	{
 		namespace shape
 		{
-			class Shape
+			class Shape : public engine::management::save::ISaveVisitable
 			{
 			public:
 				Shape();
@@ -30,7 +33,18 @@ namespace engine
 
 				std::pair<const std::unique_ptr<sf::Drawable>&, const sf::Transform> GetShape() const;
 
+				// Return the shape's name. Have to be unique
+				virtual std::string GetShapeName() const = 0;
+
+				virtual std::string GetSerializeData() const = 0;
+
+				// Override SaveVisitable interface
+				void Accept(engine::management::save::ISaveVisitor* const visitor) override;
+
 			protected:
+
+				std::string GetTransformSerialize() const;
+
 				sf::Transform relativePos;
 				std::unique_ptr<sf::Drawable> drawable;
 			};

@@ -17,6 +17,10 @@ namespace engine
 
 				void SetColor(sf::Color color) override;
 
+				std::string GetShapeName() const override;
+
+				std::string GetSerializeData() const override;
+
 				~RectangleShape();
 			private:
 				sf::RectangleShape rect;

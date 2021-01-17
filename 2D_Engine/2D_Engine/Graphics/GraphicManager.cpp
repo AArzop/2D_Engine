@@ -9,6 +9,7 @@
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
+#include "../Management/Save/ISaveVisitor.h"
 
 namespace engine
 {
@@ -55,10 +56,21 @@ namespace engine
 				eventHandler.HandleEvent(event);
 			}
 		}
+
 		std::shared_ptr<ShapeListInstance>& Manager::CreateShapeListInstance()
 		{
 			shapeListInstance.push_back(std::make_shared<ShapeListInstance>());
 			return shapeListInstance[shapeListInstance.size() - 1];
+		}
+
+		void Manager::Accept(engine::management::save::ISaveVisitor* const visitor)
+		{
+			visitor->Visit(this);
+
+			for (auto& instance : shapeListInstance)
+			{
+				instance->Accept(visitor);
+			}
 		}
 	}
 }

@@ -1,4 +1,5 @@
 #include "CircleShape.h"
+#include <sstream>
 
 namespace engine
 {
@@ -19,6 +20,21 @@ namespace engine
 			void CircleShape::SetColor(sf::Color color)
 			{
 				circle.setFillColor(color);
+			}
+
+			std::string CircleShape::GetShapeName() const
+			{
+				return "CircleShape";
+			}
+
+			std::string CircleShape::GetSerializeData() const
+			{
+				const sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(drawable.get());
+
+				std::ostringstream oss;
+				oss << "{Radius," << cs->getRadius();
+				oss << "," << GetTransformSerialize() << "}";
+				return oss.str();
 			}
 
 			CircleShape::~CircleShape()

@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics/Shape.hpp>
 
+#include "../Management/Save/ISaveVisitor.h"
+
 namespace engine
 {
 	namespace graphics
@@ -17,6 +19,16 @@ namespace engine
 		const ShapeList::Shapes& ShapeList::getShapes() const
 		{
 			return shapes;
+		}
+
+		void ShapeList::Accept(engine::management::save::ISaveVisitor* const visitor)
+		{
+			visitor->Visit(this);
+
+			for (auto& shape : shapes)
+			{
+				shape->Accept(visitor);
+			}
 		}
 	}
 }
