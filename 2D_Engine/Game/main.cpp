@@ -8,7 +8,8 @@ int main()
 
 	if (engine.Setup())
 	{
-		engine.Run();
+		engine.SaveMap();
+		//engine.Run();
 	}
 
 }
