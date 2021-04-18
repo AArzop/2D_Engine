@@ -1,6 +1,7 @@
 #include <iostream>
 
-#include "Engine.h"
+#include "Public/Engine.h"
+#include "Private/EventHandler.h"
 
 int main()
 {
