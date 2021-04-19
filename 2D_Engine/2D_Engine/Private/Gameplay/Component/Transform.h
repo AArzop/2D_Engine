@@ -12,7 +12,7 @@ namespace engine
 			class Transform : public Component
 			{
 			public:
-				Transform(Entity& entity);
+				Transform(gameplay::Entity& entity);
 				~Transform();
 
 				const sf::Transform& GetMatrix() const;
@@ -25,11 +25,11 @@ namespace engine
 				std::string GetSerializeData() const override;
 
 			private:
-				sf::Transform matrix;
+				sf::Transform Matrix;
 
-				sf::Vector2f position;
-				float rotation;
-				sf::Vector2f scale;
+				sf::Vector2f Position;
+				float Rotation;
+				sf::Vector2f Scale;
 
 				void UpdateMatrix();
 			};

@@ -12,7 +12,7 @@ namespace engine
 			template<typename S>
 			inline void Renderer::AddNewShape(S* shape)
 			{
-				shapeListInst.lock()->shapeList.Add<S>(shape);
+				ShapeListInst.lock()->ShapeList.Add<S>(shape);
 			}
 		}
 	}

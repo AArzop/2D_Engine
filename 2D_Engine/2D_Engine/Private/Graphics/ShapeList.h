@@ -15,7 +15,6 @@ namespace engine
 		class ShapeList : public engine::management::save::ISaveVisitable
 		{
 			using ShapePtr = std::unique_ptr<shape::Shape>;
-			using Shapes = std::vector<ShapePtr>;
 
 		public:
 			ShapeList();
@@ -24,13 +23,13 @@ namespace engine
 			template <class S2>
 			void Add(S2* shape);
 
-			const Shapes& getShapes() const;
+			const std::vector<ShapePtr>& GetShapes() const;
 
 			// Override SaveVisitable interface
 			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
 
 		private:
-			Shapes shapes;
+			std::vector<ShapePtr> Shapes;
 		};
 		
 		template<class S2>
@@ -43,7 +42,7 @@ namespace engine
 			}
 
 			std::unique_ptr<S2> s = std::make_unique<S2>(*shape);
-			this->shapes.push_back(std::move(s));
+			this->Shapes.push_back(std::move(s));
 		}
 	}
 }

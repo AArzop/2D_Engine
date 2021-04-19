@@ -14,17 +14,17 @@ namespace engine
 			Shape::Shape()
 			{}
 
-			Shape::Shape(const sf::Transform & relativePosition) : relativePos(relativePosition)
+			Shape::Shape(const sf::Transform & relativePosition) : RelativePos(relativePosition)
 			{}
 
 			void Shape::SetRelativePosition(const sf::Transform & relativePosition)
 			{
-				relativePos = relativePosition;
+				RelativePos = relativePosition;
 			}
 
 			std::pair<const std::unique_ptr<sf::Drawable>&, const sf::Transform> Shape::GetShape() const
 			{
-				return std::pair<const std::unique_ptr<sf::Drawable>&, const sf::Transform>(drawable, relativePos);
+				return std::pair<const std::unique_ptr<sf::Drawable>&, const sf::Transform>(Drawable, RelativePos);
 			}
 
 			void Shape::Accept(engine::management::save::ISaveVisitor* const visitor)
@@ -39,7 +39,7 @@ namespace engine
 				oss << "Transform:[";
 				for (int i = 0; i < 9; ++i)
 				{
-					oss << relativePos.getMatrix()[i];
+					oss << RelativePos.getMatrix()[i];
 					if (i != 8)
 					{
 						oss << ",";

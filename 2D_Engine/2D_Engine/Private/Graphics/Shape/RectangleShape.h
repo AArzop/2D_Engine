@@ -23,7 +23,7 @@ namespace engine
 
 				~RectangleShape();
 			private:
-				sf::RectangleShape rect;
+				sf::RectangleShape Rect;
 			};
 		}
 	}

@@ -9,7 +9,7 @@ namespace engine
 {
 	namespace gameplay
 	{
-		Entity::Entity(ManagerContext & context) : context { context }
+		Entity::Entity(ManagerContext & context) : Context { context }
 		{
 			AddComponent<component::Transform>();
 		}
@@ -19,12 +19,12 @@ namespace engine
 
 		const ManagerContext & Entity::GetContext() const
 		{
-			return context;
+			return Context;
 		}
 
 		void Entity::Start()
 		{
-			for (auto& component : components)
+			for (auto& component : Components)
 			{
 				component->Start();
 			}
@@ -32,7 +32,7 @@ namespace engine
 
 		void Entity::UpdateComponents()
 		{
-			for (auto& component : components)
+			for (auto& component : Components)
 			{
 				component->Update();
 			}
@@ -42,7 +42,7 @@ namespace engine
 		{
 			visitor->Visit(this);
 
-			for (auto& component : components)
+			for (auto& component : Components)
 			{
 				component->Accept(visitor);
 			}

@@ -11,7 +11,7 @@ namespace engine
 	{
 		struct ManagerContext
 		{
-			::engine::graphics::Manager& graphicsManager;
+			::engine::graphics::Manager& GraphicsManager;
 		};
 	}
 }

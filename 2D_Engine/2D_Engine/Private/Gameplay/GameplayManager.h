@@ -31,11 +31,10 @@ namespace engine
 
 		private:
 			using EntityPtr = std::unique_ptr<Entity>;
-			using Entities = std::vector<EntityPtr>;
 
-			Entities entities;
+			std::vector<EntityPtr> Entities;
 
-			ManagerContext context;
+			ManagerContext Context;
 		};
 	}
 }

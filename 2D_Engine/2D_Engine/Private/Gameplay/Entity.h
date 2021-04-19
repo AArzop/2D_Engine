@@ -39,8 +39,8 @@ namespace engine
 			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
 
 		private:
-			ManagerContext context;
-			std::vector<ComponentPtr> components;
+			ManagerContext Context;
+			std::vector<ComponentPtr> Components;
 		};
 	}
 }

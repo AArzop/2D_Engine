@@ -8,24 +8,24 @@ namespace engine
 {
 	namespace graphics
 	{
-		ShapeList::ShapeList(): shapes{}
+		ShapeList::ShapeList(): Shapes{}
 		{}
 
 		ShapeList::~ShapeList()
 		{
-			shapes.clear();
+			Shapes.clear();
 		}
 
-		const ShapeList::Shapes& ShapeList::getShapes() const
+		const std::vector<ShapeList::ShapePtr>& ShapeList::GetShapes() const
 		{
-			return shapes;
+			return Shapes;
 		}
 
 		void ShapeList::Accept(engine::management::save::ISaveVisitor* const visitor)
 		{
 			visitor->Visit(this);
 
-			for (auto& shape : shapes)
+			for (auto& shape : Shapes)
 			{
 				shape->Accept(visitor);
 			}

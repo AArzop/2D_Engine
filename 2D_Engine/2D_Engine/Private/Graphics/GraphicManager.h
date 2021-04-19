@@ -33,11 +33,11 @@ namespace engine
 			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
 
 		private:
-			sf::RenderWindow window;
+			sf::RenderWindow Window;
 
-			::engine::EventHandler &eventHandler;
+			::engine::EventHandler &EventHandler;
 
-			std::vector<std::shared_ptr<ShapeListInstance>> shapeListInstance;
+			std::vector<std::shared_ptr<ShapeListInstance>> ShapeListInstance;
 
 			const unsigned SCREEN_WIDTH = 700;
 			const unsigned SCREEN_HEIGHT = 400;

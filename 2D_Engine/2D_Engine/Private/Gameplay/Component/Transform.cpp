@@ -12,11 +12,11 @@ namespace engine
 	{
 		namespace component
 		{
-			Transform::Transform(Entity& entity): Component(entity)
+			Transform::Transform(gameplay::Entity& entity): Component(entity)
 			{
-				position = sf::Vector2f();
-				rotation = 0.f;
-				scale = sf::Vector2f(1.f, 1.f);
+				Position = sf::Vector2f();
+				Rotation = 0.f;
+				Scale = sf::Vector2f(1.f, 1.f);
 
 				UpdateMatrix();
 			}
@@ -27,24 +27,24 @@ namespace engine
 
 			const sf::Transform& Transform::GetMatrix() const
 			{
-				return matrix;
+				return Matrix;
 			}
 
 			void Transform::SetPosition(sf::Vector2f newPosition)
 			{
-				position = newPosition;
+				Position = newPosition;
 				UpdateMatrix();
 			}
 
 			void Transform::SetRotation(float newRotation)
 			{
-				rotation = newRotation;
+				Rotation = newRotation;
 				UpdateMatrix();
 			}
 
 			void Transform::SetScale(float newScale)
 			{
-				rotation = newScale;
+				Rotation = newScale;
 				UpdateMatrix();
 			}
 
@@ -56,16 +56,16 @@ namespace engine
 			std::string Transform::GetSerializeData() const
 			{
 				std::ostringstream oss;
-				oss << "{Position:{x:" << position.x << ",y:" << position.y << "},Rotation:" << rotation << ",Scale:{x:" << scale.x << ",y:" << scale.y << "}}";
+				oss << "{Position:{x:" << Position.x << ",y:" << Position.y << "},Rotation:" << Rotation << ",Scale:{x:" << Scale.x << ",y:" << Scale.y << "}}";
 				return oss.str();
 			}
 
 			void Transform::UpdateMatrix()
 			{
-				matrix = sf::Transform::Identity;
-				matrix.translate(position);
-				matrix.rotate(rotation);
-				matrix.scale(scale);
+				Matrix = sf::Transform::Identity;
+				Matrix.translate(Position);
+				Matrix.rotate(Rotation);
+				Matrix.scale(Scale);
 
 				GetEntity().UpdateComponents();
 			}

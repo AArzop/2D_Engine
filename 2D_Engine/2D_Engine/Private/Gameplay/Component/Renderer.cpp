@@ -13,9 +13,9 @@ namespace engine
 	{
 		namespace component
 		{
-			Renderer::Renderer(Entity& entity): Component(entity)
+			Renderer::Renderer(gameplay::Entity& entity): Component(entity)
 			{
-				shapeListInst = GetGraphicsManager().CreateShapeListInstance();
+				ShapeListInst = GetGraphicsManager().CreateShapeListInstance();
 			}
 
 			Renderer::~Renderer()
@@ -26,12 +26,12 @@ namespace engine
 
 			void Renderer::Update()
 			{
-				if (!shapeListInst.expired())
+				if (!ShapeListInst.expired())
 				{
 					component::Transform* transform = GetEntity().GetComponent<component::Transform>();
 					if (transform)
 					{
-						shapeListInst.lock()->transform = transform->GetMatrix();
+						ShapeListInst.lock()->Transform = transform->GetMatrix();
 					}
 				}
 			}
@@ -43,12 +43,12 @@ namespace engine
 
 			std::string Renderer::GetSerializeData() const
 			{
-				return "{Id:" + std::to_string(shapeListInst.lock()->Id) + "}";
+				return "{Id:" + std::to_string(ShapeListInst.lock()->Id) + "}";
 			}
 
 			graphics::Manager& Renderer::GetGraphicsManager()
 			{
-				return GetEntity().GetContext().graphicsManager;
+				return GetEntity().GetContext().GraphicsManager;
 			}
 		}
 	}

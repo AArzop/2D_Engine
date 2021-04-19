@@ -15,7 +15,7 @@ namespace engine
 {
 	namespace graphics
 	{
-		Manager::Manager(::engine::EventHandler& handler) : eventHandler(handler)
+		Manager::Manager(::engine::EventHandler& handler) : EventHandler(handler)
 		{}
 
 		Manager::~Manager()
@@ -23,51 +23,51 @@ namespace engine
 
 		bool Manager::Setup()
 		{
-			window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Engine");
-			if (!window.isOpen())
+			Window.create(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "Engine");
+			if (!Window.isOpen())
 				return false;
 
-			window.setVerticalSyncEnabled(true);
+			Window.setVerticalSyncEnabled(true);
 			return true;
 		}
 
 		void Manager::Draw()
 		{
-			window.clear(sf::Color::Black);
+			Window.clear(sf::Color::Black);
 
-			for (auto& instance : shapeListInstance)
+			for (auto& instance : ShapeListInstance)
 			{
-				for (auto& shape : instance->shapeList.getShapes())
+				for (auto& shape : instance->ShapeList.GetShapes())
 				{
 					auto p = shape->GetShape();
-					sf::RenderStates renderStates(instance->transform.combine(p.second));
-					window.draw(*p.first, renderStates);
+					sf::RenderStates renderStates(instance->Transform.combine(p.second));
+					Window.draw(*p.first, renderStates);
 				}
 			}
 
-			window.display();
+			Window.display();
 		}
 
 		void Manager::PollEvent()
 		{
 			sf::Event event;
-			while (window.pollEvent(event))
+			while (Window.pollEvent(event))
 			{
-				eventHandler.HandleEvent(event);
+				EventHandler.HandleEvent(event);
 			}
 		}
 
 		std::shared_ptr<ShapeListInstance>& Manager::CreateShapeListInstance()
 		{
-			shapeListInstance.push_back(std::make_shared<ShapeListInstance>());
-			return shapeListInstance[shapeListInstance.size() - 1];
+			ShapeListInstance.push_back(std::make_shared<graphics::ShapeListInstance>());
+			return ShapeListInstance[ShapeListInstance.size() - 1];
 		}
 
 		void Manager::Accept(engine::management::save::ISaveVisitor* const visitor)
 		{
 			visitor->Visit(this);
 
-			for (auto& instance : shapeListInstance)
+			for (auto& instance : ShapeListInstance)
 			{
 				instance->Accept(visitor);
 			}

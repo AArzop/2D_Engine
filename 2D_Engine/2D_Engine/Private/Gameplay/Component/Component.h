@@ -36,7 +36,7 @@ namespace engine
 				Entity& GetEntity() const;
 
 			private:
-				Entity& entity;
+				Entity& Entity;
 			};
 		}
 	}

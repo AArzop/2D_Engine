@@ -9,7 +9,7 @@ namespace engine
 		void ShapeListInstance::Accept(engine::management::save::ISaveVisitor* const visitor)
 		{
 			visitor->Visit(this);
-			shapeList.Accept(visitor);
+			ShapeList.Accept(visitor);
 		}
 	}
 }

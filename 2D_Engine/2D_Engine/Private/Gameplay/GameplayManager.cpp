@@ -15,7 +15,7 @@ namespace engine
 {
 	namespace gameplay
 	{
-		Manager::Manager(::engine::graphics::Manager & graphicsManager) : context { graphicsManager }
+		Manager::Manager(::engine::graphics::Manager & graphicsManager) : Context { graphicsManager }
 		{}
 
 		Manager::~Manager()
@@ -23,13 +23,13 @@ namespace engine
 
 		bool Manager::Setup()
 		{
-			entities.push_back(std::make_unique<Entity>(context));
-			entities[0]->AddComponent<component::Renderer>();
+			Entities.push_back(std::make_unique<Entity>(Context));
+			Entities[0]->AddComponent<component::Renderer>();
 
-			component::Transform& t = *entities[0]->GetComponent<component::Transform>();
+			component::Transform& t = *Entities[0]->GetComponent<component::Transform>();
 			t.SetPosition(sf::Vector2f(50, 50));
 
-			component::Renderer& r = *entities[0]->GetComponent<component::Renderer>();
+			component::Renderer& r = *Entities[0]->GetComponent<component::Renderer>();
 			graphics::shape::RectangleShape rect(10, 10);
 			rect.SetColor(sf::Color::Red);
 			r.AddNewShape<graphics::shape::RectangleShape>(&rect);
@@ -42,7 +42,7 @@ namespace engine
 
 		void Manager::Update()
 		{
-			for (auto& entity : entities)
+			for (auto& entity : Entities)
 			{
 				entity->UpdateComponents();
 			}
@@ -52,7 +52,7 @@ namespace engine
 		{
 			visitor->Visit(this);
 
-			for (auto& entity : entities)
+			for (auto& entity : Entities)
 			{
 				entity->Accept(visitor);
 			}

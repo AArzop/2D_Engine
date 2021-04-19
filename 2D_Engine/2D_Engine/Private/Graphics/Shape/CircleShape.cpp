@@ -7,19 +7,19 @@ namespace engine
 	{
 		namespace shape
 		{
-			CircleShape::CircleShape(const CircleShape& circleShape) : Shape(circleShape.relativePos), circle{ circleShape.circle }
+			CircleShape::CircleShape(const CircleShape& circleShape) : Shape(circleShape.RelativePos), Circle{ circleShape.Circle }
 			{
-				drawable = std::make_unique<sf::CircleShape>(circle);
+				Drawable = std::make_unique<sf::CircleShape>(Circle);
 			}
 
-			CircleShape::CircleShape(uint32 radius, const sf::Transform& relativePosition): Shape(relativePosition), circle{ static_cast<float>(radius) }
+			CircleShape::CircleShape(uint32 radius, const sf::Transform& relativePosition): Shape(relativePosition), Circle{ static_cast<float>(radius) }
 			{
-				drawable = std::make_unique<sf::CircleShape>(circle);
+				Drawable = std::make_unique<sf::CircleShape>(Circle);
 			}
 
 			void CircleShape::SetColor(sf::Color color)
 			{
-				circle.setFillColor(color);
+				Circle.setFillColor(color);
 			}
 
 			std::string CircleShape::GetShapeName() const
@@ -29,7 +29,7 @@ namespace engine
 
 			std::string CircleShape::GetSerializeData() const
 			{
-				const sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(drawable.get());
+				const sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(Drawable.get());
 
 				std::ostringstream oss;
 				oss << "{Radius," << cs->getRadius();
@@ -39,7 +39,7 @@ namespace engine
 
 			CircleShape::~CircleShape()
 			{
-				drawable = nullptr;
+				Drawable = nullptr;
 			}
 		}
 	}

@@ -12,8 +12,8 @@ namespace engine
 		class ShapeListInstance : public engine::management::save::ISaveVisitable
 		{
 		public:
-			ShapeList shapeList;
-			::sf::Transform transform;
+			ShapeList ShapeList;
+			::sf::Transform Transform;
 			uint64 Id;
 
 			// Override SaveVisitable interface

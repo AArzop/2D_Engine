@@ -45,8 +45,8 @@ namespace engine
 
 				std::string GetTransformSerialize() const;
 
-				sf::Transform relativePos;
-				std::unique_ptr<sf::Drawable> drawable;
+				sf::Transform RelativePos;
+				std::unique_ptr<sf::Drawable> Drawable;
 			};
 		}
 	}

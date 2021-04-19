@@ -13,7 +13,7 @@ namespace engine
 			if (!std::is_base_of<component::Component, C>())
 				return nullptr;
 
-			for (auto& component : components)
+			for (auto& component : Components)
 			{
 				if (dynamic_cast<C*>(component.get()))
 					return reinterpret_cast<C*>(component.get());
@@ -32,7 +32,7 @@ namespace engine
 				return false;
 
 			ComponentPtr component = std::make_unique<C>(*this);
-			components.push_back(std::move(component));
+			Components.push_back(std::move(component));
 			return true;
 		}
 	}

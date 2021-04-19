@@ -26,7 +26,7 @@ namespace engine
 			class Renderer : public Component
 			{
 			public:
-				Renderer(Entity& entity);
+				Renderer(gameplay::Entity& entity);
 				~Renderer();
 
 				template<typename S>
@@ -39,7 +39,7 @@ namespace engine
 				std::string GetSerializeData() const override;
 
 			private:
-				std::weak_ptr<graphics::ShapeListInstance> shapeListInst;
+				std::weak_ptr<graphics::ShapeListInstance> ShapeListInst;
 				graphics::Manager& GetGraphicsManager();
 			};
 			

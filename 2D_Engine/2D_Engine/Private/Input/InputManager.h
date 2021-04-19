@@ -11,9 +11,9 @@ namespace engine
 		class Manager
 		{
 		public:
-			bool isKeyPressed(const sf::Keyboard::Key key) const;
-			bool isKeyJustPressed(const sf::Keyboard::Key key) const;
-			bool isKeyJustReleased(const sf::Keyboard::Key key) const;
+			bool IsKeyPressed(const sf::Keyboard::Key key) const;
+			bool IsKeyJustPressed(const sf::Keyboard::Key key) const;
+			bool IsKeyJustReleased(const sf::Keyboard::Key key) const;
 
 			void Clear();
 
@@ -21,8 +21,8 @@ namespace engine
 			void ReleaseKey(const sf::Keyboard::Key key);
 
 		private:
-			std::set<sf::Keyboard::Key> justPressedKey;
-			std::set<sf::Keyboard::Key> justReleasedKey;
+			std::set<sf::Keyboard::Key> JustPressedKey;
+			std::set<sf::Keyboard::Key> JustReleasedKey;
 		};
 	}
 }

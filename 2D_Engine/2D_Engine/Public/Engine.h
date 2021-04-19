@@ -1,11 +1,11 @@
 #pragma once
 
-#include "EventHandler.h"
+#include "../Private/EventHandler.h"
 
-#include "Graphics/GraphicManager.h"
-#include "Input/InputManager.h"
-#include "Gameplay/GameplayManager.h"
-#include "Management/Save/ISaveVisitable.h"
+#include "../Private/Graphics/GraphicManager.h"
+#include "../Private/Input/InputManager.h"
+#include "../Private/Gameplay/GameplayManager.h"
+#include "../Private/Management/Save/ISaveVisitable.h"
 
 
 namespace engine

@@ -8,19 +8,19 @@ namespace engine
 	{
 		namespace shape
 		{
-			RectangleShape::RectangleShape(const RectangleShape& rectangle) : Shape(rectangle.relativePos), rect {rectangle.rect}
+			RectangleShape::RectangleShape(const RectangleShape& rectangle) : Shape(rectangle.RelativePos), Rect {rectangle.Rect}
 			{
-				drawable = std::make_unique<sf::RectangleShape>(rect);
+				Drawable = std::make_unique<sf::RectangleShape>(Rect);
 			}
 
-			RectangleShape::RectangleShape(uint32 width, uint32 leight, const sf::Transform & relativePosition) : Shape(relativePosition), rect{ sf::Vector2f(width, leight) }
+			RectangleShape::RectangleShape(uint32 width, uint32 leight, const sf::Transform & relativePosition) : Shape(relativePosition), Rect{ sf::Vector2f(width, leight) }
 			{
-				drawable = std::make_unique<sf::RectangleShape>(rect);
+				Drawable = std::make_unique<sf::RectangleShape>(Rect);
 			}
 
 			void RectangleShape::SetColor(sf::Color color)
 			{
-				rect.setFillColor(color);
+				Rect.setFillColor(color);
 			}
 
 			std::string RectangleShape::GetShapeName() const
@@ -30,7 +30,7 @@ namespace engine
 
 			std::string RectangleShape::GetSerializeData() const
 			{
-				const sf::RectangleShape* rs = reinterpret_cast<sf::RectangleShape*>(drawable.get());
+				const sf::RectangleShape* rs = reinterpret_cast<sf::RectangleShape*>(Drawable.get());
 
 				std::ostringstream oss;
 				oss << "{Width:" << rs->getSize().x << ",height:" << rs->getSize().y;
@@ -40,7 +40,7 @@ namespace engine
 
 			RectangleShape::~RectangleShape()
 			{
-				drawable = nullptr;
+				Drawable = nullptr;
 			}
 		}
 	}

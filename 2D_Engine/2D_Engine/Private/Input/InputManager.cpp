@@ -4,35 +4,35 @@ namespace engine
 {
 	namespace input
 	{
-		bool Manager::isKeyPressed(const sf::Keyboard::Key key) const
+		bool Manager::IsKeyPressed(const sf::Keyboard::Key key) const
 		{
 			return sf::Keyboard::isKeyPressed(key);
 		}
 
-		bool Manager::isKeyJustPressed(const sf::Keyboard::Key key) const
+		bool Manager::IsKeyJustPressed(const sf::Keyboard::Key key) const
 		{
-			return justPressedKey.find(key) != justPressedKey.end();
+			return JustPressedKey.find(key) != JustPressedKey.end();
 		}
 
-		bool Manager::isKeyJustReleased(const sf::Keyboard::Key key) const
+		bool Manager::IsKeyJustReleased(const sf::Keyboard::Key key) const
 		{
-			return justReleasedKey.find(key) != justReleasedKey.end();
+			return JustReleasedKey.find(key) != JustReleasedKey.end();
 		}
 
 		void Manager::Clear()
 		{
-			justPressedKey.clear();
-			justReleasedKey.clear();
+			JustPressedKey.clear();
+			JustReleasedKey.clear();
 		}
 
 		void Manager::PressedKey(const sf::Keyboard::Key key)
 		{
-			justPressedKey.insert(key);
+			JustPressedKey.insert(key);
 		}
 
 		void Manager::ReleaseKey(const sf::Keyboard::Key key)
 		{
-			justReleasedKey.insert(key);
+			JustReleasedKey.insert(key);
 		}
 	}
 }

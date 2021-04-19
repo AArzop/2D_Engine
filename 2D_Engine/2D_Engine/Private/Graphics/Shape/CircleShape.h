@@ -23,7 +23,7 @@ namespace engine
 
 				~CircleShape();
 			private:
-				sf::CircleShape circle;
+				sf::CircleShape Circle;
 			};
 		}
 	}

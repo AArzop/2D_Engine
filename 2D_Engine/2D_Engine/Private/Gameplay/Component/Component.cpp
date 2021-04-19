@@ -9,7 +9,7 @@ namespace engine
 	{
 		namespace component
 		{
-			Component::Component(Entity& entity) : entity{ entity }
+			Component::Component(gameplay::Entity& entity) : Entity{ entity }
 			{}
 
 
@@ -29,7 +29,7 @@ namespace engine
 
 			Entity& Component::GetEntity() const
 			{
-				return entity;
+				return Entity;
 			}
 		}
 	}
