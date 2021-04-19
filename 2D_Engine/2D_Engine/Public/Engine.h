@@ -31,11 +31,11 @@ namespace engine
 		void SaveMap();
 
 	private:
-		graphics::Manager graphicsManager;
-		input::Manager inputManager;
-		gameplay::Manager gameplayManager;
+		graphics::Manager GraphicsManager;
+		input::Manager InputManager;
+		gameplay::Manager GameplayManager;
 
-		bool running;
-		float deltaTime;
+		bool Running;
+		float DeltaTime;
 	};
 }
