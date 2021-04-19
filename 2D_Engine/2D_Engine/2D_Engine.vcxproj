@@ -19,45 +19,45 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Gameplay\Component\Component.cpp" />
-    <ClCompile Include="Gameplay\Component\Renderer.cpp" />
-    <ClCompile Include="Gameplay\Component\Transform.cpp" />
-    <ClCompile Include="Gameplay\Entity.cpp" />
-    <ClCompile Include="Gameplay\GameplayManager.cpp" />
-    <ClCompile Include="Graphics\GraphicManager.cpp" />
-    <ClCompile Include="Graphics\ShapeList.cpp" />
-    <ClCompile Include="Graphics\ShapeListInstance.cpp" />
-    <ClCompile Include="Graphics\Shape\RectangleShape.cpp" />
-    <ClCompile Include="Graphics\Shape\Shape.cpp" />
-    <ClCompile Include="Graphics\Shape\CircleShape.cpp" />
-    <ClCompile Include="Input\InputManager.cpp" />
-    <ClCompile Include="Management\Save\SaveVisitor.cpp" />
+    <ClInclude Include="Private\Constant\Constant.h" />
+    <ClInclude Include="Private\EventHandler.h" />
+    <ClInclude Include="Private\Gameplay\Component\Component.h" />
+    <ClInclude Include="Private\Gameplay\Component\Renderer.h" />
+    <ClInclude Include="Private\Gameplay\Component\Renderer.hxx" />
+    <ClInclude Include="Private\Gameplay\Component\Transform.h" />
+    <ClInclude Include="Private\Gameplay\Entity.h" />
+    <ClInclude Include="Private\Gameplay\Entity.hxx" />
+    <ClInclude Include="Private\Gameplay\GameplayManager.h" />
+    <ClInclude Include="Private\Gameplay\ManagerContext.h" />
+    <ClInclude Include="Private\Graphics\GraphicManager.h" />
+    <ClInclude Include="Private\Graphics\ShapeList.h" />
+    <ClInclude Include="Private\Graphics\ShapeListInstance.h" />
+    <ClInclude Include="Private\Graphics\Shape\CircleShape.h" />
+    <ClInclude Include="Private\Graphics\Shape\RectangleShape.h" />
+    <ClInclude Include="Private\Graphics\Shape\Shape.h" />
+    <ClInclude Include="Private\Input\InputManager.h" />
+    <ClInclude Include="Private\Management\IVisitable.h" />
+    <ClInclude Include="Private\Management\IVisitor.h" />
+    <ClInclude Include="Private\Management\Save\ISaveVisitable.h" />
+    <ClInclude Include="Private\Management\Save\ISaveVisitor.h" />
+    <ClInclude Include="Private\Management\Save\SaveVisitor.h" />
+    <ClInclude Include="Public\Engine.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Constant\Constant.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="Gameplay\Component\Component.h" />
-    <ClInclude Include="Gameplay\Component\Renderer.h" />
-    <ClInclude Include="Gameplay\Component\Renderer.hxx" />
-    <ClInclude Include="Gameplay\Component\Transform.h" />
-    <ClInclude Include="Gameplay\Entity.h" />
-    <ClInclude Include="Gameplay\Entity.hxx" />
-    <ClInclude Include="Gameplay\GameplayManager.h" />
-    <ClInclude Include="Gameplay\ManagerContext.h" />
-    <ClInclude Include="Graphics\GraphicManager.h" />
-    <ClInclude Include="Graphics\ShapeList.h" />
-    <ClInclude Include="Graphics\ShapeListInstance.h" />
-    <ClInclude Include="Graphics\Shape\CircleShape.h" />
-    <ClInclude Include="Graphics\Shape\RectangleShape.h" />
-    <ClInclude Include="Graphics\Shape\Shape.h" />
-    <ClInclude Include="Input\InputManager.h" />
-    <ClInclude Include="Management\IVisitor.h" />
-    <ClInclude Include="Management\IVisitable.h" />
-    <ClInclude Include="Management\Save\ISaveVisitable.h" />
-    <ClInclude Include="Management\Save\ISaveVisitor.h" />
-    <ClInclude Include="Management\Save\SaveVisitor.h" />
+    <ClCompile Include="Private\Engine.cpp" />
+    <ClCompile Include="Private\Gameplay\Component\Component.cpp" />
+    <ClCompile Include="Private\Gameplay\Component\Renderer.cpp" />
+    <ClCompile Include="Private\Gameplay\Component\Transform.cpp" />
+    <ClCompile Include="Private\Gameplay\Entity.cpp" />
+    <ClCompile Include="Private\Gameplay\GameplayManager.cpp" />
+    <ClCompile Include="Private\Graphics\GraphicManager.cpp" />
+    <ClCompile Include="Private\Graphics\ShapeList.cpp" />
+    <ClCompile Include="Private\Graphics\ShapeListInstance.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\CircleShape.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\RectangleShape.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\Shape.cpp" />
+    <ClCompile Include="Private\Input\InputManager.cpp" />
+    <ClCompile Include="Private\Management\Save\SaveVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -112,6 +112,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>..\x64\Debug</OutDir>
+    <PublicIncludeDirectories>./2D_Engine/Public;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <ExcludePath>.\2D_Engine\Private;$(ExcludePath)</ExcludePath>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PublicIncludeDirectories>./2D_Engine/Public;$(PublicIncludeDirectories)</PublicIncludeDirectories>
+    <ExcludePath>.\2D_Engine\Private;$(ExcludePath)</ExcludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -1,138 +1,150 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="Graphics\Shape\RectangleShape.cpp">
-      <Filter>Graphics\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Shape\Shape.cpp">
-      <Filter>Graphics\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\GraphicManager.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\ShapeList.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Gameplay\Entity.cpp">
-      <Filter>Gameplay</Filter>
-    </ClCompile>
-    <ClCompile Include="Gameplay\GameplayManager.cpp">
-      <Filter>Gameplay</Filter>
-    </ClCompile>
-    <ClCompile Include="Gameplay\Component\Component.cpp">
-      <Filter>Gameplay\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Gameplay\Component\Renderer.cpp">
-      <Filter>Gameplay\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Gameplay\Component\Transform.cpp">
-      <Filter>Gameplay\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Input\InputManager.cpp">
-      <Filter>Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Shape\CircleShape.cpp">
-      <Filter>Graphics\Shape</Filter>
-    </ClCompile>
-    <ClCompile Include="Management\Save\SaveVisitor.cpp">
-      <Filter>Management\Save</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\ShapeListInstance.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
+    <Filter Include="Public">
+      <UniqueIdentifier>{ec4e8c6e-a0c9-4f1f-ba8a-5d4a9d8bbb81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private">
+      <UniqueIdentifier>{657404fb-6a49-441c-bbcb-5045fe51b316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Input">
+      <UniqueIdentifier>{acd2f71a-d025-4b13-80f8-22e8809c1baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Management">
+      <UniqueIdentifier>{81ecd267-76ae-4cd1-a2fe-d9088235603a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Gameplay">
+      <UniqueIdentifier>{4eb43354-4fb0-4a50-828a-ddf0b64ee42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Constant">
+      <UniqueIdentifier>{13737c41-cfd8-4fe5-91ea-a44d0ba39b60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Graphics">
+      <UniqueIdentifier>{fa855325-8d19-44cb-8ec1-87493b9e8357}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Management\Save">
+      <UniqueIdentifier>{c3aebb17-0e10-4cc5-b887-7cf946436c43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Gameplay\Component">
+      <UniqueIdentifier>{827771ce-d09c-49cf-99a4-fa07eaaba1dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Graphics\Shape">
+      <UniqueIdentifier>{2f1783af-8451-4f77-a3fb-d1c7fcba3f27}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="Graphics\Shape\RectangleShape.h">
-      <Filter>Graphics\Shape</Filter>
+    <ClInclude Include="Public\Engine.h">
+      <Filter>Public</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Shape\Shape.h">
-      <Filter>Graphics\Shape</Filter>
+    <ClInclude Include="Private\Management\IVisitable.h">
+      <Filter>Private\Management</Filter>
     </ClInclude>
-    <ClInclude Include="Constant\Constant.h">
-      <Filter>Constant</Filter>
+    <ClInclude Include="Private\Management\IVisitor.h">
+      <Filter>Private\Management</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\GraphicManager.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="Private\Management\Save\ISaveVisitable.h">
+      <Filter>Private\Management\Save</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\ShapeList.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="Private\Management\Save\ISaveVisitor.h">
+      <Filter>Private\Management\Save</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\ShapeListInstance.h">
-      <Filter>Graphics</Filter>
+    <ClInclude Include="Private\Management\Save\SaveVisitor.h">
+      <Filter>Private\Management\Save</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\Entity.h">
-      <Filter>Gameplay</Filter>
+    <ClInclude Include="Private\Input\InputManager.h">
+      <Filter>Private\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\Entity.hxx">
-      <Filter>Gameplay</Filter>
+    <ClInclude Include="Private\Gameplay\Entity.h">
+      <Filter>Private\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\GameplayManager.h">
-      <Filter>Gameplay</Filter>
+    <ClInclude Include="Private\Gameplay\Entity.hxx">
+      <Filter>Private\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\ManagerContext.h">
-      <Filter>Gameplay</Filter>
+    <ClInclude Include="Private\Gameplay\GameplayManager.h">
+      <Filter>Private\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\Component\Component.h">
-      <Filter>Gameplay\Component</Filter>
+    <ClInclude Include="Private\Gameplay\ManagerContext.h">
+      <Filter>Private\Gameplay</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\Component\Renderer.h">
-      <Filter>Gameplay\Component</Filter>
+    <ClInclude Include="Private\Gameplay\Component\Component.h">
+      <Filter>Private\Gameplay\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\Component\Renderer.hxx">
-      <Filter>Gameplay\Component</Filter>
+    <ClInclude Include="Private\Gameplay\Component\Renderer.h">
+      <Filter>Private\Gameplay\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Gameplay\Component\Transform.h">
-      <Filter>Gameplay\Component</Filter>
+    <ClInclude Include="Private\Gameplay\Component\Renderer.hxx">
+      <Filter>Private\Gameplay\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Input\InputManager.h">
-      <Filter>Input</Filter>
+    <ClInclude Include="Private\Gameplay\Component\Transform.h">
+      <Filter>Private\Gameplay\Component</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Shape\CircleShape.h">
-      <Filter>Graphics\Shape</Filter>
+    <ClInclude Include="Private\Constant\Constant.h">
+      <Filter>Private\Constant</Filter>
     </ClInclude>
-    <ClInclude Include="Management\IVisitable.h">
-      <Filter>Management</Filter>
+    <ClInclude Include="Private\Graphics\GraphicManager.h">
+      <Filter>Private\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Management\IVisitor.h">
-      <Filter>Management</Filter>
+    <ClInclude Include="Private\Graphics\ShapeList.h">
+      <Filter>Private\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Management\Save\SaveVisitor.h">
-      <Filter>Management\Save</Filter>
+    <ClInclude Include="Private\Graphics\ShapeListInstance.h">
+      <Filter>Private\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Management\Save\ISaveVisitable.h">
-      <Filter>Management\Save</Filter>
+    <ClInclude Include="Private\Graphics\Shape\CircleShape.h">
+      <Filter>Private\Graphics\Shape</Filter>
     </ClInclude>
-    <ClInclude Include="Management\Save\ISaveVisitor.h">
-      <Filter>Management\Save</Filter>
+    <ClInclude Include="Private\Graphics\Shape\RectangleShape.h">
+      <Filter>Private\Graphics\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Graphics\Shape\Shape.h">
+      <Filter>Private\Graphics\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\EventHandler.h">
+      <Filter>Private</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{6f8aa644-839a-492f-a71e-8e0f86e3de7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{2dcf5782-7b7f-443a-8466-aa7347022fd3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Gameplay">
-      <UniqueIdentifier>{2995d5ce-332d-4705-b195-658095dc9abd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Gameplay\Component">
-      <UniqueIdentifier>{8f04ca91-5397-4af7-812e-0772795192f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Shape">
-      <UniqueIdentifier>{b361297d-9095-46c1-94d4-8fd4a19234ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Constant">
-      <UniqueIdentifier>{27ccbbcf-82aa-4a24-8e23-16977b09ebe2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Management">
-      <UniqueIdentifier>{f15937e9-3c0e-4406-99e0-82a8fd77b52b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Management\Save">
-      <UniqueIdentifier>{f3656214-ec08-403e-8b89-6624d935c32f}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Private\Engine.cpp">
+      <Filter>Private</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Management\Save\SaveVisitor.cpp">
+      <Filter>Private\Management\Save</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Input\InputManager.cpp">
+      <Filter>Private\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Gameplay\Entity.cpp">
+      <Filter>Private\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Gameplay\GameplayManager.cpp">
+      <Filter>Private\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Gameplay\Component\Component.cpp">
+      <Filter>Private\Gameplay\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Gameplay\Component\Renderer.cpp">
+      <Filter>Private\Gameplay\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Gameplay\Component\Transform.cpp">
+      <Filter>Private\Gameplay\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\GraphicManager.cpp">
+      <Filter>Private\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\ShapeList.cpp">
+      <Filter>Private\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\ShapeListInstance.cpp">
+      <Filter>Private\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\Shape\CircleShape.cpp">
+      <Filter>Private\Graphics\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\Shape\RectangleShape.cpp">
+      <Filter>Private\Graphics\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\Shape\Shape.cpp">
+      <Filter>Private\Graphics\Shape</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
