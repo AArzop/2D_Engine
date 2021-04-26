@@ -56,6 +56,13 @@ namespace engine
 			{
 				entity->Accept(visitor);
 			}
+
+			visitor->AddEndSection();
+		}
+
+		void Manager::Clear()
+		{
+			Entities.clear();
 		}
 	}
 }		

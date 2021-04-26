@@ -1,13 +1,24 @@
 #pragma once
 
 #include "SFML/Graphics/RenderWindow.hpp"
+
 #include <vector>
+#include <map>
 
 #include "../Management/Save/ISaveVisitable.h"
+#include "../Constant/Constant.h"
 
 namespace engine
 {
 	class EventHandler;
+
+	namespace management
+	{
+		namespace load
+		{
+			class IShapeLoader;
+		}
+	}
 
 	namespace graphics
 	{
@@ -18,7 +29,7 @@ namespace engine
 		public:
 			Manager() = delete;
 			Manager(EventHandler& handler);
-			
+
 			~Manager();
 
 			bool Setup();
@@ -27,10 +38,22 @@ namespace engine
 
 			void PollEvent();
 
-			std::shared_ptr<ShapeListInstance>& CreateShapeListInstance();
+			void Clear();
+
+			std::shared_ptr<ShapeListInstance>& CreateShapeListInstance(uint64 saveId = 0);
+
+#pragma region Management
 
 			// Override SaveVisitable interface
 			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
+
+			// Call to set shapeListInst saveId
+			void GenerateShapeListInstanceSaveID();
+
+			// Fill map with all shape loader. Must free memory
+			void FillShapeLoaders(std::map<std::string, management::load::IShapeLoader*>& shapeLoaders);
+
+#pragma endregion
 
 		private:
 			sf::RenderWindow Window;

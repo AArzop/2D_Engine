@@ -5,9 +5,11 @@
 
 #include <SFML/Window/Event.hpp>
 
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/Graphics/Sprite.hpp>
+#include "../Management/Load/ILoader.h"
+#include "Shape/Shape Loader/RectangleShapeLoader.h"
+#include "Shape/RectangleShape.h"
+#include "Shape/Shape Loader/CircleShapeLoader.h"
+#include "Shape/CircleShape.h"
 
 #include "../Management/Save/ISaveVisitor.h"
 
@@ -57,20 +59,42 @@ namespace engine
 			}
 		}
 
-		std::shared_ptr<ShapeListInstance>& Manager::CreateShapeListInstance()
+		std::shared_ptr<ShapeListInstance>& Manager::CreateShapeListInstance(uint64 saveId)
 		{
-			ShapeListInstance.push_back(std::make_shared<graphics::ShapeListInstance>());
+			ShapeListInstance.push_back(std::make_shared<graphics::ShapeListInstance>(saveId));
 			return ShapeListInstance[ShapeListInstance.size() - 1];
 		}
 
 		void Manager::Accept(engine::management::save::ISaveVisitor* const visitor)
 		{
+			GenerateShapeListInstanceSaveID();
 			visitor->Visit(this);
 
 			for (auto& instance : ShapeListInstance)
 			{
 				instance->Accept(visitor);
 			}
+
+			visitor->AddEndSection();
+		}
+
+		void Manager::GenerateShapeListInstanceSaveID()
+		{
+			for (uint32 i = 0; i < ShapeListInstance.size(); ++i)
+			{
+				ShapeListInstance[i]->SaveId = i;
+			}
+		}
+
+		void Manager::FillShapeLoaders(std::map<std::string, management::load::IShapeLoader*>& shapeLoaders)
+		{
+			shapeLoaders[shape::RectangleShape::GetShapeName_Static()] = new shape::RectangleShapeLoader();
+			shapeLoaders[shape::CircleShape::GetShapeName_Static()] = new shape::CircleShapeLoader();
+		}
+
+		void Manager::Clear()
+		{
+			ShapeListInstance.clear();
 		}
 	}
 }

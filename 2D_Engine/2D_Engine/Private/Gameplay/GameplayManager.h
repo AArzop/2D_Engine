@@ -23,8 +23,12 @@ namespace engine
 			Manager(::engine::graphics::Manager& graphicsManager);
 			~Manager();
 
+			void Clear();
+
 			bool Setup();
 			void Update();
+
+
 
 			// Override SaveVisitable interface
 			void Accept(engine::management::save::ISaveVisitor* const visitor) override;
