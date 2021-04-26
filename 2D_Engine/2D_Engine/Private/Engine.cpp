@@ -5,6 +5,7 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Management/Save/SaveVisitor.h"
+#include "Management/Load/MapLoader.h"
 
 
 namespace engine
@@ -91,5 +92,11 @@ namespace engine
 		management::save::SaveVisitor saveVisitor("E:/TestSave.txt");
 		Accept(&saveVisitor);
 		saveVisitor.End();
+	}
+
+	void Engine::LoadFile(std::string filename)
+	{
+		management::load::MapLoader mapLoader;
+		mapLoader.LoadMap("E:/TestSave.txt", GraphicsManager, GameplayManager);
 	}
 }

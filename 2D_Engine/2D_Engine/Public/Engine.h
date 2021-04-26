@@ -30,6 +30,8 @@ namespace engine
 
 		void SaveMap();
 
+		void LoadFile(std::string filename);
+
 	private:
 		graphics::Manager GraphicsManager;
 		input::Manager InputManager;
