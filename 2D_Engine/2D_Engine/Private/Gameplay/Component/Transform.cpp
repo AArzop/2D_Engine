@@ -56,7 +56,7 @@ namespace engine
 			std::string Transform::GetSerializeData() const
 			{
 				std::ostringstream oss;
-				oss << "{Position:{x:" << Position.x << ",y:" << Position.y << "},Rotation:" << Rotation << ",Scale:{x:" << Scale.x << ",y:" << Scale.y << "}}";
+				oss << "{Position:{X:" << Position.x << ",Y:" << Position.y << "},Rotation:" << Rotation << ",Scale:{X:" << Scale.x << ",Y:" << Scale.y << "}}";
 				return oss.str();
 			}
 
