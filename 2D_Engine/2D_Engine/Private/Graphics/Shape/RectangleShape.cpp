@@ -25,6 +25,11 @@ namespace engine
 
 			std::string RectangleShape::GetShapeName() const
 			{
+				return GetShapeName_Static();
+			}
+
+			std::string RectangleShape::GetShapeName_Static()
+			{
 				return "RectangleShape";
 			}
 
@@ -33,7 +38,7 @@ namespace engine
 				const sf::RectangleShape* rs = reinterpret_cast<sf::RectangleShape*>(Drawable.get());
 
 				std::ostringstream oss;
-				oss << "{Width:" << rs->getSize().x << ",height:" << rs->getSize().y;
+				oss << "{Width:" << rs->getSize().x << ",Height:" << rs->getSize().y;
 				oss << "," << GetTransformSerialize() << "}";
 				return oss.str();
 			}

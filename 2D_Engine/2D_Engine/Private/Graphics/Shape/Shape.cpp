@@ -36,7 +36,7 @@ namespace engine
 			{
 				std::ostringstream oss;
 
-				oss << "Transform:[";
+				oss << "\"Transform\":[";
 				for (int i = 0; i < 9; ++i)
 				{
 					oss << RelativePos.getMatrix()[i];

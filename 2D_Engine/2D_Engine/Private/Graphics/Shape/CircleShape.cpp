@@ -24,6 +24,11 @@ namespace engine
 
 			std::string CircleShape::GetShapeName() const
 			{
+				return GetShapeName_Static();
+			}
+
+			std::string CircleShape::GetShapeName_Static()
+			{
 				return "CircleShape";
 			}
 
@@ -32,7 +37,7 @@ namespace engine
 				const sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(Drawable.get());
 
 				std::ostringstream oss;
-				oss << "{Radius," << cs->getRadius();
+				oss << "{\"Radius\":" << cs->getRadius();
 				oss << "," << GetTransformSerialize() << "}";
 				return oss.str();
 			}
