@@ -34,10 +34,15 @@
     <ClInclude Include="Private\Graphics\ShapeListInstance.h" />
     <ClInclude Include="Private\Graphics\Shape\CircleShape.h" />
     <ClInclude Include="Private\Graphics\Shape\RectangleShape.h" />
+    <ClInclude Include="Private\Graphics\Shape\Shape Loader\CircleShapeLoader.h" />
+    <ClInclude Include="Private\Graphics\Shape\Shape Loader\RectangleShapeLoader.h" />
     <ClInclude Include="Private\Graphics\Shape\Shape.h" />
     <ClInclude Include="Private\Input\InputManager.h" />
+    <ClInclude Include="Private\Management\Load\ILoader.h" />
+    <ClInclude Include="Private\Management\ManagementConstant.h" />
     <ClInclude Include="Private\Management\IVisitable.h" />
     <ClInclude Include="Private\Management\IVisitor.h" />
+    <ClInclude Include="Private\Management\Load\MapLoader.h" />
     <ClInclude Include="Private\Management\Save\ISaveVisitable.h" />
     <ClInclude Include="Private\Management\Save\ISaveVisitor.h" />
     <ClInclude Include="Private\Management\Save\SaveVisitor.h" />
@@ -55,8 +60,11 @@
     <ClCompile Include="Private\Graphics\ShapeListInstance.cpp" />
     <ClCompile Include="Private\Graphics\Shape\CircleShape.cpp" />
     <ClCompile Include="Private\Graphics\Shape\RectangleShape.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\Shape Loader\CircleShapeLoader.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\Shape Loader\RectangleShapeLoader.cpp" />
     <ClCompile Include="Private\Graphics\Shape\Shape.cpp" />
     <ClCompile Include="Private\Input\InputManager.cpp" />
+    <ClCompile Include="Private\Management\Load\MapLoader.cpp" />
     <ClCompile Include="Private\Management\Save\SaveVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

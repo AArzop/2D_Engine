@@ -31,6 +31,12 @@
     <Filter Include="Private\Graphics\Shape">
       <UniqueIdentifier>{2f1783af-8451-4f77-a3fb-d1c7fcba3f27}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Private\Management\Load">
+      <UniqueIdentifier>{fe2ce5db-599b-4c96-8f18-dfc6907905f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Graphics\Shape\Shape Loader">
+      <UniqueIdentifier>{8a9f35ea-84eb-4221-b3a7-3a834afb9db4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Public\Engine.h">
@@ -102,6 +108,21 @@
     <ClInclude Include="Private\EventHandler.h">
       <Filter>Private</Filter>
     </ClInclude>
+    <ClInclude Include="Private\Management\Load\MapLoader.h">
+      <Filter>Private\Management\Load</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Management\ManagementConstant.h">
+      <Filter>Private\Management</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Management\Load\ILoader.h">
+      <Filter>Private\Management\Load</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Graphics\Shape\Shape Loader\RectangleShapeLoader.h">
+      <Filter>Private\Graphics\Shape\Shape Loader</Filter>
+    </ClInclude>
+    <ClInclude Include="Private\Graphics\Shape\Shape Loader\CircleShapeLoader.h">
+      <Filter>Private\Graphics\Shape\Shape Loader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Engine.cpp">
@@ -145,6 +166,15 @@
     </ClCompile>
     <ClCompile Include="Private\Graphics\Shape\Shape.cpp">
       <Filter>Private\Graphics\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Management\Load\MapLoader.cpp">
+      <Filter>Private\Management\Load</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\Shape\Shape Loader\RectangleShapeLoader.cpp">
+      <Filter>Private\Graphics\Shape\Shape Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Graphics\Shape\Shape Loader\CircleShapeLoader.cpp">
+      <Filter>Private\Graphics\Shape\Shape Loader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
