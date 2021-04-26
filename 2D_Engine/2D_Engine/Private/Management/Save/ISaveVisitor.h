@@ -73,6 +73,8 @@ namespace engine
 
 #pragma endregion
 
+				virtual void AddEndSection() = 0;
+
 			};
 		}
 	}

@@ -6,6 +6,8 @@
 #include "../../Graphics/ShapeListInstance.h"
 #include "../../Graphics/Shape/Shape.h"
 
+#include "../ManagementConstant.h"
+
 namespace engine
 {
 	namespace management
@@ -32,12 +34,12 @@ namespace engine
 
 			void SaveVisitor::Visit(engine::gameplay::Entity* const entity)
 			{
-				Output << "New Entity" << std::endl;
+				Output << Token::EntityToken << std::endl;
 			}
 
 			void SaveVisitor::Visit(engine::gameplay::component::Component* const component)
 			{
-				Output << component->GetComponentName() << "$" << component->GetSerializeData() << std::endl;
+				Output << component->GetComponentName() << Token::InlineDelimiterToken << component->GetSerializeData() << std::endl;
 			}
 
 #pragma endregion
@@ -52,18 +54,23 @@ namespace engine
 
 			void SaveVisitor::Visit(engine::graphics::ShapeListInstance* const shapeListInstance)
 			{
-				Output << "ShapeListInstance$" << shapeListInstance->Id << std::endl;
+				Output << Token::ShapeListInstanceToken << Token::InlineDelimiterToken << shapeListInstance->SaveId << std::endl;
 			}
 
 			void SaveVisitor::Visit(engine::graphics::shape::Shape* const shape)
 			{
-				Output << shape->GetShapeName() << "$" << shape->GetSerializeData() << std::endl;
+				Output << shape->GetShapeName() << Token::InlineDelimiterToken << shape->GetSerializeData() << std::endl;
 			}
 
 #pragma endregion
 
 			void SaveVisitor::Visit(ISaveVisitable* const visitable)
 			{}
+			
+			void SaveVisitor::AddEndSection()
+			{
+				Output << Token::SectionDelimiterToken << std::endl;
+			}
 		}
 	}
 }
