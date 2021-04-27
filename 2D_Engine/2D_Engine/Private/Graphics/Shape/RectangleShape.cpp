@@ -15,13 +15,11 @@ namespace engine
 			RectangleShape::RectangleShape(const RectangleShape& rectangle) : Shape(rectangle.RelativePos), Rect {rectangle.Rect}
 			{
 				Drawable = std::make_unique<sf::RectangleShape>(Rect);
-				SetColor(sf::Color::Red);
 			}
 
 			RectangleShape::RectangleShape(uint32 width, uint32 leight, const sf::Transform & relativePosition) : Shape(relativePosition), Rect{ sf::Vector2f(width, leight) }
 			{
 				Drawable = std::make_unique<sf::RectangleShape>(Rect);
-				SetColor(sf::Color::Red);
 			}
 
 			void RectangleShape::SetColor(sf::Color color)
@@ -54,6 +52,10 @@ namespace engine
 				rapidjson::Value h(rapidjson::kNumberType);
 				h.SetFloat(rs->getSize().y);
 				d.AddMember("Height", h, alloc);
+
+				rapidjson::Value color(rapidjson::kNumberType);
+				color.SetUint(rs->getFillColor().toInteger());
+				d.AddMember("Color", color, alloc);
 
 				FillTransformField(d, "Transform", RelativePos);
 

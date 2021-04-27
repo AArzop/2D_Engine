@@ -21,7 +21,7 @@ namespace engine
 			~ShapeList();
 
 			template <class S>
-			void Add(S* shape);
+			shape::Shape* Add(S* shape);
 
 			const std::vector<ShapePtr>& GetShapes() const;
 
@@ -33,16 +33,17 @@ namespace engine
 		};
 		
 		template<class S>
-		inline void ShapeList::Add(S* shape)
+		inline shape::Shape* ShapeList::Add(S* shape)
 		{
 			if (!dynamic_cast<shape::Shape*>(shape))
 			{
 				assert(true);
-				return;
+				return nullptr;
 			}
 
 			std::unique_ptr<S> s = std::make_unique<S>(*shape);
 			this->Shapes.push_back(std::move(s));
+			return this->Shapes[this->Shapes.size() - 1].get();
 		}
 	}
 }

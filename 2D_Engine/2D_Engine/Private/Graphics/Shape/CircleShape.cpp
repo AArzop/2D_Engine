@@ -20,7 +20,6 @@ namespace engine
 			CircleShape::CircleShape(uint32 radius, const sf::Transform& relativePosition): Shape(relativePosition), Circle{ static_cast<float>(radius) }
 			{
 				Drawable = std::make_unique<sf::CircleShape>(Circle);
-				SetColor(sf::Color::Green);
 			}
 
 			void CircleShape::SetColor(sf::Color color)
@@ -45,6 +44,10 @@ namespace engine
 				rapidjson::Document d;
 				d["Radius"].SetFloat(cs->getRadius());
 				FillTransformField(d, "Transform", RelativePos);
+
+				rapidjson::Value color(rapidjson::kNumberType);
+				color.SetUint(cs->getFillColor().toInteger());
+				d.AddMember("Color", color, d.GetAllocator());
 
 				rapidjson::StringBuffer buffer;
 				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);

@@ -10,6 +10,7 @@ namespace engine::graphics::shape
 	{
 		rapidjson::Document d;
 		d.Parse(json.c_str());
-		shapeList.Add<RectangleShape>(new RectangleShape(d["Width"].GetInt(), d["Height"].GetInt(), GetTransformFromJson(d, "Transform")));
+		Shape* shape = shapeList.Add<RectangleShape>(new RectangleShape(d["Width"].GetFloat(), d["Height"].GetFloat(), GetTransformFromJson(d, "Transform")));
+		shape->SetColor(sf::Color(d["Color"].GetUint()));
 	}
 }
