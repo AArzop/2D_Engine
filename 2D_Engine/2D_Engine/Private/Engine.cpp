@@ -91,16 +91,16 @@ namespace engine
 		GameplayManager.Accept(visitor);
 	}
 
-	void Engine::SaveMap()
+	void Engine::SaveMap(const std::string& filename)
 	{
-		management::save::SaveVisitor saveVisitor("E:/TMP.txt");
+		management::save::SaveVisitor saveVisitor(filename);
 		Accept(&saveVisitor);
 		saveVisitor.End();
 	}
 
-	void Engine::LoadFile(std::string filename)
+	void Engine::LoadFile(const std::string& filename)
 	{
 		management::load::MapLoader mapLoader;
-		mapLoader.LoadMap("E:/TestSave.txt", GraphicsManager, GameplayManager);
+		mapLoader.LoadMap(filename, GraphicsManager, GameplayManager);
 	}
 }

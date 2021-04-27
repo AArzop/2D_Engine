@@ -28,9 +28,9 @@ namespace engine
 
 		void Accept(management::save::ISaveVisitor* const visitor) override;
 
-		void SaveMap();
+		void SaveMap(const std::string& filename);
 
-		void LoadFile(std::string filename);
+		void LoadFile(const std::string& filename);
 
 	private:
 		graphics::Manager GraphicsManager;
