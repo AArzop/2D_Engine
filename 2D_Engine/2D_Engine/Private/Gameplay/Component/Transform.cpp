@@ -42,13 +42,18 @@ namespace engine
 				UpdateMatrix();
 			}
 
-			void Transform::SetScale(float newScale)
+			void Transform::SetScale(sf::Vector2f newScale)
 			{
-				Rotation = newScale;
+				Scale = newScale;
 				UpdateMatrix();
 			}
 
 			std::string Transform::GetComponentName() const
+			{
+				return GetComponentName_Static();
+			}
+
+			std::string Transform::GetComponentName_Static()
 			{
 				return "Transform";
 			}

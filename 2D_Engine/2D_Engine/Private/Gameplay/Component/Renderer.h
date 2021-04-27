@@ -29,6 +29,8 @@ namespace engine
 				Renderer(gameplay::Entity& entity);
 				~Renderer();
 
+				void LinkTo(uint64 id);
+
 				template<typename S>
 				void AddNewShape(S* shape);
 
@@ -36,9 +38,13 @@ namespace engine
 				void Update() override;
 
 				std::string GetComponentName() const override;
+				static std::string GetComponentName_Static();
 				std::string GetSerializeData() const override;
 
 			private:
+
+				void UpdateWithTransform();
+
 				std::weak_ptr<graphics::ShapeListInstance> ShapeListInst;
 				graphics::Manager& GetGraphicsManager();
 			};

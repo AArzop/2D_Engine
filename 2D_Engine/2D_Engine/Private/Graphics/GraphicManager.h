@@ -41,6 +41,7 @@ namespace engine
 			void Clear();
 
 			std::shared_ptr<ShapeListInstance>& CreateShapeListInstance(uint64 saveId = 0);
+			std::shared_ptr<ShapeListInstance>& FindShapeListInstanceById(uint64 id);
 
 #pragma region Management
 

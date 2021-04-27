@@ -6,9 +6,9 @@
 #include <SFML/Window/Event.hpp>
 
 #include "../Management/Load/ILoader.h"
-#include "Shape/Shape Loader/RectangleShapeLoader.h"
+#include "Shape/Loader/RectangleShapeLoader.h"
 #include "Shape/RectangleShape.h"
-#include "Shape/Shape Loader/CircleShapeLoader.h"
+#include "Shape/Loader/CircleShapeLoader.h"
 #include "Shape/CircleShape.h"
 
 #include "../Management/Save/ISaveVisitor.h"
@@ -63,6 +63,19 @@ namespace engine
 		{
 			ShapeListInstance.push_back(std::make_shared<graphics::ShapeListInstance>(saveId));
 			return ShapeListInstance[ShapeListInstance.size() - 1];
+		}
+
+		std::shared_ptr<ShapeListInstance>& Manager::FindShapeListInstanceById(uint64 id)
+		{
+			for (auto& inst : ShapeListInstance)
+			{
+				if (inst->SaveId == id)
+				{
+					return inst;
+				}
+			}
+
+			return CreateShapeListInstance(id);
 		}
 
 		void Manager::Accept(engine::management::save::ISaveVisitor* const visitor)

@@ -102,6 +102,58 @@ namespace engine::management::load
 
 	bool MapLoader::LoadGameplayManager(std::ifstream& file, gameplay::Manager& gameplayManager)
 	{
-		return false;
+		bool returnValue = true;
+		std::map<std::string, IComponentLoader*> componentLoader;
+		gameplayManager.FillComponentLoaders(componentLoader);
+		
+
+		char line[1024];
+		engine::gameplay::Entity* entity = nullptr;
+		do
+		{
+			file.getline(line, 1024);
+			if (strcmp(line, Token::SectionDelimiterToken) == 0)
+			{
+				break;
+			}
+
+			std::string strLine = line;
+			uint8 delimiterPos = strLine.find_first_of(Token::InlineDelimiterToken);
+			std::string objectName = strLine.substr(0, delimiterPos);
+			std::string param = strLine.substr(delimiterPos + 1);
+
+			if (objectName == Token::EntityToken)
+			{
+				entity = gameplayManager.CreateEntity();
+			}
+			else
+			{
+				bool isLoaderFound = false;
+				for (auto& pair : componentLoader)
+				{
+					if (objectName == pair.first)
+					{
+						isLoaderFound = true;
+						pair.second->Instanciate(*entity, param);
+						break;
+					}
+				}
+
+				if (!isLoaderFound)
+				{
+					std::cerr << "Loader " << objectName << " is not found" << std::endl;
+					returnValue = false;
+					break;
+				}
+				
+			}
+		} while (!file.eof());
+
+		for (auto& pair : componentLoader)
+		{
+			delete pair.second;
+		}
+
+		return returnValue;
 	}
 }

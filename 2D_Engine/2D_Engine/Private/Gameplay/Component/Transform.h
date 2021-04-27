@@ -19,9 +19,10 @@ namespace engine
 
 				void SetPosition(sf::Vector2f newPosition);
 				void SetRotation(float newRotation);
-				void SetScale(float newScale);
+				void SetScale(sf::Vector2f newScale);
 
 				std::string GetComponentName() const override;
+				static std::string GetComponentName_Static();
 				std::string GetSerializeData() const override;
 
 			private:
