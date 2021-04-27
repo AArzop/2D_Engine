@@ -22,6 +22,8 @@
     <ClInclude Include="Private\Constant\Constant.h" />
     <ClInclude Include="Private\EventHandler.h" />
     <ClInclude Include="Private\Gameplay\Component\Component.h" />
+    <ClInclude Include="Private\Gameplay\Component\Loader\RendererComponentLoader.h" />
+    <ClInclude Include="Private\Gameplay\Component\Loader\TransformComponentLoader.h" />
     <ClInclude Include="Private\Gameplay\Component\Renderer.h" />
     <ClInclude Include="Private\Gameplay\Component\Renderer.hxx" />
     <ClInclude Include="Private\Gameplay\Component\Transform.h" />
@@ -33,9 +35,9 @@
     <ClInclude Include="Private\Graphics\ShapeList.h" />
     <ClInclude Include="Private\Graphics\ShapeListInstance.h" />
     <ClInclude Include="Private\Graphics\Shape\CircleShape.h" />
+    <ClInclude Include="Private\Graphics\Shape\Loader\CircleShapeLoader.h" />
+    <ClInclude Include="Private\Graphics\Shape\Loader\RectangleShapeLoader.h" />
     <ClInclude Include="Private\Graphics\Shape\RectangleShape.h" />
-    <ClInclude Include="Private\Graphics\Shape\Shape Loader\CircleShapeLoader.h" />
-    <ClInclude Include="Private\Graphics\Shape\Shape Loader\RectangleShapeLoader.h" />
     <ClInclude Include="Private\Graphics\Shape\Shape.h" />
     <ClInclude Include="Private\Input\InputManager.h" />
     <ClInclude Include="Private\Management\Load\ILoader.h" />
@@ -51,6 +53,8 @@
   <ItemGroup>
     <ClCompile Include="Private\Engine.cpp" />
     <ClCompile Include="Private\Gameplay\Component\Component.cpp" />
+    <ClCompile Include="Private\Gameplay\Component\Loader\RendererComponentLoader.cpp" />
+    <ClCompile Include="Private\Gameplay\Component\Loader\TransformComponentLoader.cpp" />
     <ClCompile Include="Private\Gameplay\Component\Renderer.cpp" />
     <ClCompile Include="Private\Gameplay\Component\Transform.cpp" />
     <ClCompile Include="Private\Gameplay\Entity.cpp" />
@@ -59,9 +63,9 @@
     <ClCompile Include="Private\Graphics\ShapeList.cpp" />
     <ClCompile Include="Private\Graphics\ShapeListInstance.cpp" />
     <ClCompile Include="Private\Graphics\Shape\CircleShape.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\Loader\CircleShapeLoader.cpp" />
+    <ClCompile Include="Private\Graphics\Shape\Loader\RectangleShapeLoader.cpp" />
     <ClCompile Include="Private\Graphics\Shape\RectangleShape.cpp" />
-    <ClCompile Include="Private\Graphics\Shape\Shape Loader\CircleShapeLoader.cpp" />
-    <ClCompile Include="Private\Graphics\Shape\Shape Loader\RectangleShapeLoader.cpp" />
     <ClCompile Include="Private\Graphics\Shape\Shape.cpp" />
     <ClCompile Include="Private\Input\InputManager.cpp" />
     <ClCompile Include="Private\Management\Load\MapLoader.cpp" />

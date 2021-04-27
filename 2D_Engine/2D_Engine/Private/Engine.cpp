@@ -31,6 +31,8 @@ namespace engine
 
 		Running = true;
 
+		GameplayManager.Start();
+
 		sf::Clock clock;
 		while (Running)
 		{
@@ -39,6 +41,8 @@ namespace engine
 			InputManager.Clear();
 
 			GraphicsManager.PollEvent();
+
+			GameplayManager.Update();
 
 			GraphicsManager.Draw();
 		}

@@ -11,7 +11,7 @@ int main()
 	{
 		//engine.SaveMap();
 		engine.LoadFile("");
-		//engine.Run();
+		engine.Run();
 	}
 
 }
