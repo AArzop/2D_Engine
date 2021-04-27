@@ -37,10 +37,10 @@ namespace engine
 				std::ostringstream oss;
 
 				oss << "\"Transform\":[";
-				for (int i = 0; i < 9; ++i)
+				for (int i = 0; i < 16; ++i)
 				{
 					oss << RelativePos.getMatrix()[i];
-					if (i != 8)
+					if (i != 15)
 					{
 						oss << ",";
 					}

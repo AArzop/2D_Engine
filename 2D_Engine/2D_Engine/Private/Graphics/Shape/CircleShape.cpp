@@ -15,6 +15,7 @@ namespace engine
 			CircleShape::CircleShape(uint32 radius, const sf::Transform& relativePosition): Shape(relativePosition), Circle{ static_cast<float>(radius) }
 			{
 				Drawable = std::make_unique<sf::CircleShape>(Circle);
+				SetColor(sf::Color::Green);
 			}
 
 			void CircleShape::SetColor(sf::Color color)
