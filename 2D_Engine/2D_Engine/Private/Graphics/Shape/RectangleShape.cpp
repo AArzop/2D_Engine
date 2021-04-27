@@ -24,7 +24,8 @@ namespace engine
 
 			void RectangleShape::SetColor(sf::Color color)
 			{
-				Rect.setFillColor(color);
+				sf::RectangleShape* rs = reinterpret_cast<sf::RectangleShape*>(Drawable.get());
+				rs->setFillColor(color);
 			}
 
 			std::string RectangleShape::GetShapeName() const

@@ -12,5 +12,6 @@ namespace engine::graphics::shape
 		d.Parse(json.c_str());
 		Shape* shape = shapeList.Add<RectangleShape>(new RectangleShape(d["Width"].GetFloat(), d["Height"].GetFloat(), GetTransformFromJson(d, "Transform")));
 		shape->SetColor(sf::Color(d["Color"].GetUint()));
+		shape->SetColor(sf::Color::Magenta);
 	}
 }

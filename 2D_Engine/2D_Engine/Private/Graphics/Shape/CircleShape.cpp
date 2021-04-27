@@ -24,7 +24,8 @@ namespace engine
 
 			void CircleShape::SetColor(sf::Color color)
 			{
-				Circle.setFillColor(color);
+				sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(Drawable.get());
+				cs->setFillColor(color);
 			}
 
 			std::string CircleShape::GetShapeName() const
@@ -42,12 +43,19 @@ namespace engine
 				const sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(Drawable.get());
 
 				rapidjson::Document d;
-				d["Radius"].SetFloat(cs->getRadius());
-				FillTransformField(d, "Transform", RelativePos);
+				d.SetObject();
+
+				auto alloc = d.GetAllocator();
+
+				rapidjson::Value radius(rapidjson::kNumberType);
+				radius.SetFloat(cs->getRadius());
+				d.AddMember("Radius", radius, alloc);
 
 				rapidjson::Value color(rapidjson::kNumberType);
 				color.SetUint(cs->getFillColor().toInteger());
-				d.AddMember("Color", color, d.GetAllocator());
+				d.AddMember("Color", color, alloc);
+
+				FillTransformField(d, "Transform", RelativePos);
 
 				rapidjson::StringBuffer buffer;
 				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
