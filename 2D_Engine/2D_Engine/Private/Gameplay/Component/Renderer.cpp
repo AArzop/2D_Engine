@@ -7,6 +7,11 @@
 #include "../../Graphics/ShapeListInstance.h"
 #include "../../Graphics/Shape/RectangleShape.h"
 
+#include "../../Management/UtilFunctions.h"
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+
 namespace engine
 {
 	namespace gameplay
@@ -46,7 +51,18 @@ namespace engine
 
 			std::string Renderer::GetSerializeData() const
 			{
-				return "{SaveId:" + std::to_string(ShapeListInst.lock()->SaveId) + "}";
+				rapidjson::Document d;
+				d.SetObject();
+
+				rapidjson::Value id(rapidjson::kNumberType);
+				id.SetUint64(ShapeListInst.lock()->SaveId);
+				d.AddMember("SaveId", id, d.GetAllocator());
+
+				rapidjson::StringBuffer buffer;
+				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+				d.Accept(writer);
+
+				return buffer.GetString();
 			}
 
 			void Renderer::UpdateWithTransform()

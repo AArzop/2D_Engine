@@ -34,7 +34,7 @@ namespace engine
 
 			void SaveVisitor::Visit(engine::gameplay::Entity* const entity)
 			{
-				Output << Token::EntityToken << std::endl;
+				Output << Token::EntityToken << Token::InlineDelimiterToken << std::endl;
 			}
 
 			void SaveVisitor::Visit(engine::gameplay::component::Component* const component)

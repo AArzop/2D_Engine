@@ -2,8 +2,11 @@
 
 #include "../Entity.h"
 #include "../../Management/Save/SaveVisitor.h"
+#include "../../Management/UtilFunctions.h"
 
-#include <sstream>
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
 
 
 namespace engine
@@ -60,9 +63,22 @@ namespace engine
 
 			std::string Transform::GetSerializeData() const
 			{
-				std::ostringstream oss;
-				oss << "{Position:{X:" << Position.x << ",Y:" << Position.y << "},Rotation:" << Rotation << ",Scale:{X:" << Scale.x << ",Y:" << Scale.y << "}}";
-				return oss.str();
+				rapidjson::Document d;
+				d.SetObject();
+
+				auto alloc = d.GetAllocator();
+				FillVector2fField(d, "Position", Position);
+				FillVector2fField(d, "Scale", Scale);
+
+				rapidjson::Value rot(rapidjson::kNumberType);
+				rot.SetFloat(Rotation);
+				d.AddMember("Rotation", rot, d.GetAllocator());
+
+				rapidjson::StringBuffer buffer;
+				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+				d.Accept(writer);
+
+				return buffer.GetString();
 			}
 
 			void Transform::UpdateMatrix()
