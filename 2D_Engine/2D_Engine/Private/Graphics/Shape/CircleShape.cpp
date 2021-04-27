@@ -1,5 +1,10 @@
 #include "CircleShape.h"
-#include <sstream>
+
+#include "../../Management/UtilFunctions.h"
+
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
 
 namespace engine
 {
@@ -37,10 +42,15 @@ namespace engine
 			{
 				const sf::CircleShape* cs = reinterpret_cast<sf::CircleShape*>(Drawable.get());
 
-				std::ostringstream oss;
-				oss << "{\"Radius\":" << cs->getRadius();
-				oss << "," << GetTransformSerialize() << "}";
-				return oss.str();
+				rapidjson::Document d;
+				d["Radius"].SetFloat(cs->getRadius());
+				FillTransformField(d, "Transform", RelativePos);
+
+				rapidjson::StringBuffer buffer;
+				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+				d.Accept(writer);
+
+				return buffer.GetString();
 			}
 
 			CircleShape::~CircleShape()

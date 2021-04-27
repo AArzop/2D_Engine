@@ -1,6 +1,10 @@
 #include "RectangleShape.h"
 
-#include <sstream>
+#include "../../Management/UtilFunctions.h"
+
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
 
 namespace engine
 {
@@ -39,10 +43,25 @@ namespace engine
 			{
 				const sf::RectangleShape* rs = reinterpret_cast<sf::RectangleShape*>(Drawable.get());
 
-				std::ostringstream oss;
-				oss << "{Width:" << rs->getSize().x << ",Height:" << rs->getSize().y;
-				oss << "," << GetTransformSerialize() << "}";
-				return oss.str();
+				rapidjson::Document d;
+				d.SetObject();
+
+				auto alloc = d.GetAllocator();
+				rapidjson::Value w(rapidjson::kNumberType);
+				w.SetFloat(rs->getSize().x);
+				d.AddMember("Width", w, alloc);
+
+				rapidjson::Value h(rapidjson::kNumberType);
+				h.SetFloat(rs->getSize().y);
+				d.AddMember("Height", h, alloc);
+
+				FillTransformField(d, "Transform", RelativePos);
+
+				rapidjson::StringBuffer buffer;
+				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+				d.Accept(writer);
+
+				return buffer.GetString();
 			}
 
 			RectangleShape::~RectangleShape()

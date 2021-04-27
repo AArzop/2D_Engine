@@ -132,6 +132,9 @@
     <ClInclude Include="Private\Gameplay\Component\Loader\RendererComponentLoader.h">
       <Filter>Private\Gameplay\Component\Loader</Filter>
     </ClInclude>
+    <ClInclude Include="Private\Management\UtilFunctions.h">
+      <Filter>Private\Management</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Private\Engine.cpp">
@@ -190,6 +193,9 @@
     </ClCompile>
     <ClCompile Include="Private\Gameplay\Component\Loader\RendererComponentLoader.cpp">
       <Filter>Private\Gameplay\Component\Loader</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Management\UtilFunctions.cpp">
+      <Filter>Private\Management</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

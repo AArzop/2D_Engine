@@ -93,7 +93,7 @@ namespace engine
 
 	void Engine::SaveMap()
 	{
-		management::save::SaveVisitor saveVisitor("E:/TestSave.txt");
+		management::save::SaveVisitor saveVisitor("E:/TMP.txt");
 		Accept(&saveVisitor);
 		saveVisitor.End();
 	}

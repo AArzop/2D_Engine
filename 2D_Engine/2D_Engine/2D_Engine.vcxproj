@@ -48,6 +48,7 @@
     <ClInclude Include="Private\Management\Save\ISaveVisitable.h" />
     <ClInclude Include="Private\Management\Save\ISaveVisitor.h" />
     <ClInclude Include="Private\Management\Save\SaveVisitor.h" />
+    <ClInclude Include="Private\Management\UtilFunctions.h" />
     <ClInclude Include="Public\Engine.h" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +71,7 @@
     <ClCompile Include="Private\Input\InputManager.cpp" />
     <ClCompile Include="Private\Management\Load\MapLoader.cpp" />
     <ClCompile Include="Private\Management\Save\SaveVisitor.cpp" />
+    <ClCompile Include="Private\Management\UtilFunctions.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

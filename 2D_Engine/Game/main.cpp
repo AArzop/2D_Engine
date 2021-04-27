@@ -9,9 +9,9 @@ int main()
 
 	if (engine.Setup())
 	{
-		//engine.SaveMap();
 		engine.LoadFile("");
-		engine.Run();
+		//engine.Run();
+		engine.SaveMap();
 	}
 
 }
