@@ -13,11 +13,12 @@ namespace engine
 			{
 			public:
 				RectangleShape(const RectangleShape& rectangle);
-				RectangleShape(uint32 width, uint32 leight, const sf::Transform& relativePosition = sf::Transform());
+				RectangleShape(uint32 width, uint32 height, const sf::Transform& relativePosition = sf::Transform());
 
 				void SetColor(sf::Color color) override;
 
 				std::string GetShapeName() const override;
+				static std::string GetShapeName_Static();
 
 				std::string GetSerializeData() const override;
 

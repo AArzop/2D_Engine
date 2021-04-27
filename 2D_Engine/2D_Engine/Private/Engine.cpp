@@ -5,19 +5,20 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Management/Save/SaveVisitor.h"
+#include "Management/Load/MapLoader.h"
 
 
 namespace engine
 {
-	Engine::Engine() : graphicsManager{ *this }, gameplayManager{ graphicsManager }, inputManager{}, running(false)
+	Engine::Engine() : GraphicsManager{ *this }, GameplayManager{ GraphicsManager }, InputManager{}, Running(false)
 	{}
 
 	bool Engine::Setup()
 	{
-		if (!graphicsManager.Setup())
+		if (!GraphicsManager.Setup())
 			return false;
 
-		if (!gameplayManager.Setup())
+		if (!GameplayManager.Setup())
 			return false;
 
 		return true;
@@ -25,35 +26,39 @@ namespace engine
 
 	void Engine::Run()
 	{
-		if (running)
+		if (Running)
 			return;
 
-		running = true;
+		Running = true;
+
+		GameplayManager.Start();
 
 		sf::Clock clock;
-		while (running)
+		while (Running)
 		{
-			deltaTime = clock.restart().asSeconds();
+			DeltaTime = clock.restart().asSeconds();
 
-			inputManager.Clear();
+			InputManager.Clear();
 
-			graphicsManager.PollEvent();
+			GraphicsManager.PollEvent();
 
-			graphicsManager.Draw();
+			GameplayManager.Update();
+
+			GraphicsManager.Draw();
 		}
 	}
 
 	void Engine::Stop()
 	{
-		if (!running)
+		if (!Running)
 			return;
 
-		running = false;
+		Running = false;
 	}
 
 	float Engine::GetDeltaTime() const
 	{
-		return deltaTime;
+		return DeltaTime;
 	}
 	
 	void Engine::HandleEvent(const sf::Event& event)
@@ -65,11 +70,11 @@ namespace engine
 			break;
 
 		case sf::Event::KeyPressed:
-			inputManager.PressedKey(event.key.code);
+			InputManager.PressedKey(event.key.code);
 			break;
 
 		case sf::Event::KeyReleased:
-			inputManager.ReleaseKey(event.key.code);
+			InputManager.ReleaseKey(event.key.code);
 			break;
 
 		default:
@@ -81,15 +86,21 @@ namespace engine
 	{
 		visitor->Visit(this);
 
-		graphicsManager.Accept(visitor);
+		GraphicsManager.Accept(visitor);
 
-		gameplayManager.Accept(visitor);
+		GameplayManager.Accept(visitor);
 	}
 
-	void Engine::SaveMap()
+	void Engine::SaveMap(const std::string& filename)
 	{
-		management::save::SaveVisitor saveVisitor("E:/TestSave.txt");
+		management::save::SaveVisitor saveVisitor(filename);
 		Accept(&saveVisitor);
 		saveVisitor.End();
+	}
+
+	void Engine::LoadFile(const std::string& filename)
+	{
+		management::load::MapLoader mapLoader;
+		mapLoader.LoadMap(filename, GraphicsManager, GameplayManager);
 	}
 }

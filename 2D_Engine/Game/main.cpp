@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "Public/Engine.h"
-#include "Private/EventHandler.h"
 
 int main()
 {
@@ -9,8 +8,9 @@ int main()
 
 	if (engine.Setup())
 	{
-		engine.SaveMap();
-		//engine.Run();
+		engine.LoadFile("E:/Map1.txt");
+		engine.Run();
+		//engine.SaveMap("E:/Map2.txt");
 	}
 
 }

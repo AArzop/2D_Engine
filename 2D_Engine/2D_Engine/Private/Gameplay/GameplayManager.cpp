@@ -2,6 +2,8 @@
 
 #include "Entity.h"
 
+#include "Component/Loader/TransformComponentLoader.h"
+#include "Component/Loader/RendererComponentLoader.h"
 #include "Component/Transform.h"
 #include "Component/Renderer.h"
 
@@ -23,21 +25,15 @@ namespace engine
 
 		bool Manager::Setup()
 		{
-			Entities.push_back(std::make_unique<Entity>(Context));
-			Entities[0]->AddComponent<component::Renderer>();
-
-			component::Transform& t = *Entities[0]->GetComponent<component::Transform>();
-			t.SetPosition(sf::Vector2f(50, 50));
-
-			component::Renderer& r = *Entities[0]->GetComponent<component::Renderer>();
-			graphics::shape::RectangleShape rect(10, 10);
-			rect.SetColor(sf::Color::Red);
-			r.AddNewShape<graphics::shape::RectangleShape>(&rect);
-
-			graphics::shape::CircleShape circle(7);
-			//r.AddNewShape<graphics::shape::CircleShape>(&circle);
-
 			return true;
+		}
+
+		void Manager::Start()
+		{
+			for (auto& entity : Entities)
+			{
+				entity->Start();
+			}
 		}
 
 		void Manager::Update()
@@ -48,6 +44,12 @@ namespace engine
 			}
 		}
 
+		Entity* Manager::CreateEntity()
+		{
+			Entities.push_back(std::make_unique<Entity>(Context));
+			return Entities[Entities.size() - 1].get();
+		}
+
 		void Manager::Accept(engine::management::save::ISaveVisitor* const visitor)
 		{
 			visitor->Visit(this);
@@ -56,6 +58,19 @@ namespace engine
 			{
 				entity->Accept(visitor);
 			}
+
+			visitor->AddEndSection();
+		}
+
+		void Manager::FillComponentLoaders(std::map<std::string, management::load::IComponentLoader*>& shapeLoaders)
+		{
+			shapeLoaders[component::Transform::GetComponentName_Static()] = new component::TransformComponentLoader();
+			shapeLoaders[component::Renderer::GetComponentName_Static()] = new component::RendererComponentLoader();
+		}
+
+		void Manager::Clear()
+		{
+			Entities.clear();
 		}
 	}
 }		

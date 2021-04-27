@@ -12,9 +12,11 @@ namespace engine
 		class ShapeListInstance : public engine::management::save::ISaveVisitable
 		{
 		public:
+			ShapeListInstance(uint64 saveId);
+
 			ShapeList ShapeList;
 			::sf::Transform Transform;
-			uint64 Id;
+			uint64 SaveId;
 
 			// Override SaveVisitable interface
 			void Accept(engine::management::save::ISaveVisitor* const visitor) override;

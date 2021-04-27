@@ -2,6 +2,7 @@
 
 #include "Renderer.h"
 #include "../../Graphics/ShapeListInstance.h"
+#include "../../Graphics/GraphicManager.h"
 
 namespace engine
 {
@@ -12,6 +13,11 @@ namespace engine
 			template<typename S>
 			inline void Renderer::AddNewShape(S* shape)
 			{
+				if (ShapeListInst.expired())
+				{
+					ShapeListInst = GetGraphicsManager().CreateShapeListInstance();
+				}
+
 				ShapeListInst.lock()->ShapeList.Add<S>(shape);
 			}
 		}

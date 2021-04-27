@@ -18,6 +18,7 @@ namespace engine
 				void SetColor(sf::Color color) override;
 
 				std::string GetShapeName() const override;
+				static std::string GetShapeName_Static();
 
 				std::string GetSerializeData() const override;
 

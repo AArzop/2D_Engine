@@ -41,6 +41,9 @@ namespace engine
 				// Default behavior
 				void Visit(ISaveVisitable* const visitable) override;
 
+				virtual void AddEndSection() override;
+
+
 			private:
 
 				std::ofstream Output;

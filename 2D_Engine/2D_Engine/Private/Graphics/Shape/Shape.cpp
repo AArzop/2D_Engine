@@ -31,24 +31,6 @@ namespace engine
 			{
 				visitor->Visit(this);
 			}
-
-			std::string Shape::GetTransformSerialize() const
-			{
-				std::ostringstream oss;
-
-				oss << "Transform:[";
-				for (int i = 0; i < 9; ++i)
-				{
-					oss << RelativePos.getMatrix()[i];
-					if (i != 8)
-					{
-						oss << ",";
-					}
-				}
-
-				oss << "]";
-				return oss.str();
-			}
 		}
 	}
 }

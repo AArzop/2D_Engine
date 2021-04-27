@@ -28,14 +28,16 @@ namespace engine
 
 		void Accept(management::save::ISaveVisitor* const visitor) override;
 
-		void SaveMap();
+		void SaveMap(const std::string& filename);
+
+		void LoadFile(const std::string& filename);
 
 	private:
-		graphics::Manager graphicsManager;
-		input::Manager inputManager;
-		gameplay::Manager gameplayManager;
+		graphics::Manager GraphicsManager;
+		input::Manager InputManager;
+		gameplay::Manager GameplayManager;
 
-		bool running;
-		float deltaTime;
+		bool Running;
+		float DeltaTime;
 	};
 }

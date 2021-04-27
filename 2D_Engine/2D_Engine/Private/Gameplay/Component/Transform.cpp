@@ -2,8 +2,11 @@
 
 #include "../Entity.h"
 #include "../../Management/Save/SaveVisitor.h"
+#include "../../Management/UtilFunctions.h"
 
-#include <sstream>
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
 
 
 namespace engine
@@ -42,22 +45,40 @@ namespace engine
 				UpdateMatrix();
 			}
 
-			void Transform::SetScale(float newScale)
+			void Transform::SetScale(sf::Vector2f newScale)
 			{
-				Rotation = newScale;
+				Scale = newScale;
 				UpdateMatrix();
 			}
 
 			std::string Transform::GetComponentName() const
+			{
+				return GetComponentName_Static();
+			}
+
+			std::string Transform::GetComponentName_Static()
 			{
 				return "Transform";
 			}
 
 			std::string Transform::GetSerializeData() const
 			{
-				std::ostringstream oss;
-				oss << "{Position:{x:" << Position.x << ",y:" << Position.y << "},Rotation:" << Rotation << ",Scale:{x:" << Scale.x << ",y:" << Scale.y << "}}";
-				return oss.str();
+				rapidjson::Document d;
+				d.SetObject();
+
+				auto alloc = d.GetAllocator();
+				FillVector2fField(d, "Position", Position);
+				FillVector2fField(d, "Scale", Scale);
+
+				rapidjson::Value rot(rapidjson::kNumberType);
+				rot.SetFloat(Rotation);
+				d.AddMember("Rotation", rot, d.GetAllocator());
+
+				rapidjson::StringBuffer buffer;
+				rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+				d.Accept(writer);
+
+				return buffer.GetString();
 			}
 
 			void Transform::UpdateMatrix()

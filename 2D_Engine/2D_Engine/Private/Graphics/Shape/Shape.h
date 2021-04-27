@@ -43,8 +43,6 @@ namespace engine
 
 			protected:
 
-				std::string GetTransformSerialize() const;
-
 				sf::Transform RelativePos;
 				std::unique_ptr<sf::Drawable> Drawable;
 			};
